@@ -1,6 +1,6 @@
 <?php
 require_once("./includes/session_timeout.inc.php");
-//require("./includes/session_var_setup.php");
+require("./includes/session_var_setup.inc.php");
 
 if($_SESSION['role'] == "admin"){
   ?>
@@ -17,8 +17,13 @@ if($_SESSION['role'] == "admin"){
 if($_SESSION['role'] == "trainee"){
 ?>
 <h1>Trainee Area</h1>
-<p>Your registration and login is successful. Please log back in at the appropriate time to select your show. Resources are below.</p>
-<?php include("./includes/show_selection.inc.php");
+<?php if (!$register) {?><p>Your registration and login is successful. Please log back in at the appropriate time to select your show.</p>
+<?php } else { ?>
+<p>Welcome to the WMFO training portal.</p>
+<?php }
+if($register){
+  include("./includes/show_selection.inc.php");
+}
 ?>
 <?php
 }
@@ -28,6 +33,12 @@ if($_SESSION['role'] == "trainee"){
 if($_SESSION['role'] == "trainer"){
 ?>
 <h1>Training Management Portal</h1>
-<p>Thanks for registering! Once the DJs have registered you'll be able to see their names and contact info below. Please take attendence and fill out this checklist every week during your show!</p>
-<?php } ?>
-You've logged in. Still working on this part.
+<p>Welcome! You can view DJ names and contact info below. Please take attendence and fill out the checklist every week during your show!</p>
+
+<?php include('./includes/trainer_startpage.inc.php'); ?>
+<h2>Weekly Training Checklist</h2>
+
+<?php  include('./includes/checklist.inc.php');
+} ?>
+You're currently logged in.
+<?php include('./includes/logout.inc.php'); ?>

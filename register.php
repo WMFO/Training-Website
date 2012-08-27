@@ -1,6 +1,6 @@
 <?php
   // list expected fields
-$expected = array('fname', 'lname', 'email', 'pwd', 'conf_pwd', 'role', 'showday', 'showtime', 'showpm', 'showduration',
+  $expected = array('fname', 'lname', 'email', 'pwd', 'conf_pwd', 'role', 'showday', 'showtime', 'showpm', 'showduration',
                   'phone', 'showname');
   // set required fields
   $required = array('fname', 'lname', 'email', 'pwd', 'conf_pwd', 'role');

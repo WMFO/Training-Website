@@ -11,6 +11,7 @@
   if ($stmt->prepare($query)) {
     $stmt->bind_param('ii', intval($_POST['showchoice']), $_SESSION['user_id']);
     $done = $stmt->execute();
+    $stmt->close();
   }
   if ($done) {
     $query = "SELECT * FROM users WHERE showchoice = " . $_POST['showchoice'];
@@ -24,6 +25,7 @@
     $stmt->bind_result($showduration);
     $OK = $stmt->execute();
     $stmt->fetch();
+    $stmt->close();
     if($OK){
       if($showduration == 1 && $numRows <= $setting['max1hour']){
         $numOK=true;
@@ -40,21 +42,24 @@
       //The oh shit double book moment
       $query = "UPDATE users SET showchoice = 0 WHERE user_id = ?";
       $stmt = $connw->stmt_init();
-        $done = $stmt->execute();
+      $done = $stmt->execute();
+      $stmt->close();
       } 
-    } else {
       $success = true;
       $query3 = "UPDATE users SET enrolled = ? WHERE user_id = ?";
       $stmt = $connw->stmt_init();
       if ($stmt->prepare($query3)) {
         $stmt->bind_param('ii', $numRows, intval($_POST['showchoice']));
         $done = $stmt->execute();
-        $error[] = "Why didn't everything work?";
+        $stmt->close();
+#        $error[] = "Why didn't everything work?";
       } else {
         $error[] = "Well poop...";
       }
     
-    }
+  } else {
+    $error[] = "Error Code 14287";
+  }
   if ($success) {
     $_SESSION['showchoice'] = $_POST['showchoice'];
   } 

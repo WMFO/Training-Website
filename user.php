@@ -4,6 +4,9 @@ if($_SESSION['role'] != 'admin'){
    header('Location: /index.php');
 }
 include("./includes/session_var_setup.inc.php");
+if (isset($_POST['activate'])){
+  require("./includes/usernable.inc.php");
+}
 $sql = "SELECT * FROM users WHERE role != 'admin'";
 $result = $conn->query($sql);
 
@@ -35,7 +38,7 @@ $result = $conn->query($sql);
 while ($row = $result->fetch_assoc()){
 ?>
 <tr>
-<td><a href="deluser.php?=<?php echo $row['user_id'];?>">DEL</a></td>
+<td><a href="deluser.php?user=<?php echo $row['user_id'];?>">DEL</a></td>
 <td><?php echo $row['fname'] . ' ' . $row['lname']; ?></td>
 <td><?php echo $row['email'];?></td>
 <td><?php echo $row['role']; ?></td>
@@ -54,9 +57,7 @@ while ($row = $result->fetch_assoc()){
 <?php } ?>
 </table>
 <p><input type="submit" value="Set User Activation" name="activate"></p>
+<p><a href="/">Home</a></p>
 </form>
-<pre>
-<?php var_dump($_POST);?>
-</pre>
 </body>
 </html>

@@ -1,5 +1,5 @@
 <?php
-if (isset($_POST['submitcheck'])){
+if (isset($_POST['submitcheck']) && isset($_POST['register'])){
   require('markitem.inc.php');
 }
 $sql= "SELECT item, id, onum, 

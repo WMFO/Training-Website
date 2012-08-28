@@ -18,6 +18,7 @@ if (sha1($password . $salt) == $storedPwd && $enabled){
   $_SESSION['user_id'] = $user_id;
   $_SESSION['role'] = $role;
   $_SESSION['showchoice'] = $showchoice;
+  $_SESSION['enabled'] = $enabled;
   // get the time the session started
   $_SESSION['start'] = time();
   session_regenerate_id();

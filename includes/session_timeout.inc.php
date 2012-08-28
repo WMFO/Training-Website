@@ -17,7 +17,7 @@ if (!isset($_SESSION['authenticated'])) {
   $_SESSION = array();
   // invalidate the session cookie
   if (isset($_COOKIE[session_name()])) {
-	setcookie(session_name(), '', time()-86400, '/');
+    setcookie(session_name(), '', time()-86400, '/');
   }
   // end session and redirect with query string
   session_destroy();

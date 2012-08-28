@@ -21,7 +21,7 @@ if($_SESSION['role'] == "trainee"){
 <?php } else { ?>
 <p>Welcome to the WMFO training portal.</p>
 <?php }
-if($register){
+if($register || $_SESSION['enabled'] == 2){
   include("./includes/show_selection.inc.php");
 }
 ?>

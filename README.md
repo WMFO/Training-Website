@@ -9,7 +9,7 @@ Version 0.85
 
 A coordination platform to make sure DJs know how to answer phones. A login management platform capable of keeping track of registration, attendance, and checklist functionality. Currently it is very specifically tailored to the WMFO 3 week training process.
 
-A working test demonstration of the current/future code can be found at <http://php.axfp.org"> Keep in mind that due to my laziness, this does NOT use SSL.
+A working test demonstration of the current/future code can be found at http://php.axfp.org Keep in mind that due to my laziness, this does NOT use SSL.
 
 Changelog
 =========

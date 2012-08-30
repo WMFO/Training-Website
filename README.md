@@ -14,6 +14,9 @@ A working test demonstration of the current/future code can be found at http://p
 Changelog
 =========
 
+8/30/12 -- V 0.90  
+Production Beta Release. To undergo final testing and initial deployment.  
+
 8/28/12 -- V 0.85  
 Added user management and fixed a few bugs.
 

@@ -13,7 +13,8 @@ $stmt->bind_result($salt, $storedPwd, $enabled, $user_id, $role, $showchoice);
 $stmt->execute();
 $stmt->fetch();
 // encrypt the submitted password with the salt and compare with stored password
-if (sha1($password . $salt) == $storedPwd && ($enabled || $role == "admin")){
+$passok = sha1($password . $salt) == $storedPwd;
+if ($passok && ($enabled || $role == "admin")){
   $_SESSION['authenticated'] = 'Jesse Weeks';
   $_SESSION['user_id'] = $user_id;
   $_SESSION['role'] = $role;
@@ -24,7 +25,7 @@ if (sha1($password . $salt) == $storedPwd && ($enabled || $role == "admin")){
   session_regenerate_id();
   header("Location: $redirect");
   exit;
-} elseif ($user_id != 0 && $enabled == "0"){
+} elseif ($passok && $user_id != 0 && $enabled == "0"){
   $error = 'Your account setup is successful. Please check back later.';
 } else {
   // if no match, prepare error message

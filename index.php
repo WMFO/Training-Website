@@ -21,9 +21,8 @@ if($_SESSION['role'] == "trainee"){
 <?php } else { ?>
 <p>Welcome to the WMFO training portal.</p>
 <?php }
-if($register || $_SESSION['enabled'] == 2){
-  include("./includes/show_selection.inc.php");
-}
+include("./includes/show_selection.inc.php");
+
 ?>
 <?php
 }
@@ -40,5 +39,6 @@ if($_SESSION['role'] == "trainer"){
 
 <?php  include('./includes/checklist.inc.php');
 } ?>
-You're currently logged in.
+<p>You're currently logged in.</p>
 <?php include('./includes/logout.inc.php'); ?>
+<p>Problems? Email training@wmfo.org.</p>

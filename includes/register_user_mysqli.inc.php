@@ -44,6 +44,16 @@ if (!$errors) {
                       $showduration, $phone, $showname);
     $stmt->execute();
     if ($stmt->affected_rows == 1) {
+      if ($role = "trainee"){
+      $sql = "SELECT user_id FROM users WHERE email = \"" . $email . '"';
+      $connw = dbConnect('write');
+      $result = $connw->query($sql);
+      $row = $result->fetch_assoc();
+      $user_id = $row['user_id'];
+      $result->close();
+      $sql = "INSERT INTO attendance (user_id) VALUES (" . $user_id . ")";
+      $result = $connw->query($sql);
+      }
         $fqdn = 'Location: ' . $redirect . "?message=" . $fname;
   	$success = "$fname, you have been successfully registered. You may now log in.";
         header($fqdn);

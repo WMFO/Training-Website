@@ -40,12 +40,15 @@ if ($_SESSION['showchoice']) {
     </tr>
     <?php } ?>
 </table>
-<p>Expect to receive a confirmation email with further details from your training DJ. You have reserved a spot in the above show. If you desire, you may drop your spot in search of another. However, your spot may be taken in you choose to drop your reservation.</p>
+<?php if ($register) {?><p>Expect to receive a confirmation email with further details from your training DJ. You have reserved a spot in the above show. If you desire, you may drop your spot in search of another. However, your spot may be taken in you choose to drop your reservation.</p>
  <p> 
 <form id="dropform" method="post" action="">
     <input name="drop" type="submit" id="drop" value="Drop Reservation">
 </form>
  </p>
+<?php } else {
+  echo "<p><i>Add/drop is closed. If you need to change shows, contact the training coordinator.</i></p>";
+}?>
 <p>
   <a href="https://wiki.wmfo.org/Training/New_DJ_Training_Checklist">New DJ Training Checklist</a>
 </p>
@@ -55,6 +58,7 @@ if (isset($error)){
     echo '<p>' . $problem . '</p>';
   }
 }
+if ($register) {
 echo '<p>A total of ' . $numRows . ' shows are hosting new DJs.</p>';
 ?>
 <table border="2">
@@ -97,7 +101,11 @@ if ($avail > 0) {
     <input name="register" type="submit" id="register" value="Register">
  </p>
  </form>
-<?php }
+<?php } else { ?>
+<p>Registration is not open yet or is closed. It is available between <?php echo strftime( "%c", $setting['reg_open']);?> until <?php echo strftime("%c", $setting['reg_close']);?>. For help, contact the training coordinator.</p>
+<?php
+}
+}
 //$result->close();
 if ($showweek > 0 && $showweek < 4 && $_SESSION['showchoice']) {
 ?>

@@ -57,7 +57,10 @@ if ($error) {
         <input name="login" type="submit" id="login" value="Log in">
     </p>
 </form>
-<a href="register.php?key=3311656">Click here to Register</a>
+
+<?php if( $_SERVER['SERVER_NAME'] == "php.axfp.org") {
+  echo '<a href="register.php?key=3311656">Click here to Register</a>'; 
+} ?>
 <pre>
   __  ____        ____  __ _____ ___    ____   ___  _ ____  
  / /__\ \ \      / /  \/  |  ___/ _ \  |___ \ / _ \/ |___ \ 

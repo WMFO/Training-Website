@@ -10,7 +10,20 @@ if (isset($_POST['register'])) {
   require('./includes/processmail.inc.php');
   require_once('./includes/register_user_mysqli.inc.php');
 }
-include('./includes/session_var_setup.inc.php');
+$settingQuery = array();
+require_once('./includes/connection.inc.php');
+$conn = dbConnect('read');
+$sql="SELECT * FROM settings";
+$settingQuery = $conn->query($sql);
+while ($row = $settingQuery->fetch_assoc()) {
+  if ($row['type'] == 'int') {
+    $setting[$row['name']] = intval($row['nvalue']);
+  }
+  elseif ($row['type'] == 'date'){
+    $setting[$row['name']] = strtotime($row['dvalue']);
+  }
+}
+
 if(@$_GET['key'] != $setting['regkey']) {
   header("Location: /");
 }

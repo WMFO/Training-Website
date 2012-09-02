@@ -6,7 +6,7 @@ $timelimit = 10000;
 // get the current time
 $now = time();
 // where to redirect if rejected
-$redirect = 'http://php.axfp.org/login.php';
+$redirect = 'login.php';
 $next = $_SERVER['PHP_SELF'];
 // if session variable not set, redirect to login page
 if (!isset($_SESSION['authenticated'])) {

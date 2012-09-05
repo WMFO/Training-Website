@@ -35,10 +35,11 @@ if($_SESSION['role'] == "trainer"){
 <p>Welcome! You can view DJ names and contact info below. Please take attendence and fill out the checklist every week during your show!</p>
 
 <?php include('./includes/trainer_startpage.inc.php'); ?>
-<h2>Weekly Training Checklist</h2>
 
 <?php  include('./includes/checklist.inc.php');
 } ?>
-<p>You're currently logged in.</p>
 <?php include('./includes/logout.inc.php'); ?>
 <p>Problems? Email training@wmfo.org.</p>
+<font color="grey"><p>The WMFO Training Education Management System (the TEMS&reg;)<br>
+<i>It's like SIS, but not terrible.</i><br>
+&copy; Nicholas Andre <?php echo date("Y"); ?></p></font>

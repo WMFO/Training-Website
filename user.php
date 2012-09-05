@@ -32,7 +32,7 @@ $result = $conn->query($sql);
 <th>Show Time/Day</th>
 <th>Disabled</th>
 <th>Enabled</th>
-<th>Early Registration</th>
+<th>Extended Registration/Add Drop</th>
 </tr>
 <?php
 while ($row = $result->fetch_assoc()){

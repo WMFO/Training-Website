@@ -15,7 +15,9 @@ while ($row = $result->fetch_assoc()) {
   }
 }
 $sql="UPDATE attendance SET " . $showweek . "_attend = false, "
- . $showweek . "_show = " . $_SESSION['user_id'] . " WHERE";
+  . $showweek . "_show = " . $_SESSION['user_id'] . " WHERE "
+  . "!(" . $showweek . "_show != " . $_SESSION['user_id']
+  . " && " . $showweek . "_attend = true) && (";
 $uor = false;
 foreach ($unchecked as $user){
   if ($uor){
@@ -24,9 +26,12 @@ foreach ($unchecked as $user){
   $sql .= " user_id = " . $user;
   $uor = true;
 }
+$sql .= ")";
 $done = $connw->query($sql); 
 $sql="UPDATE attendance SET " . $showweek . "_attend = true, "
- . $showweek . "_show = " . $_SESSION['user_id'] . " WHERE";
+ . $showweek . "_show = " . $_SESSION['user_id'] . " WHERE "
+  . "!(" . $showweek . "_show != " . $_SESSION['user_id']
+  . " && " . $showweek . "_attend = true) && (";
 $uor = false;
 foreach ($_POST['attends'] as $user){
   if ($uor){
@@ -35,6 +40,7 @@ foreach ($_POST['attends'] as $user){
   $sql .= " user_id = " . $user;
   $uor = true;
 }
+$sql .= ")";
 $done = $connw->query($sql); 
   $_SESSION['att'] = "Jim";
 if ($done) {

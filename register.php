@@ -82,12 +82,12 @@ if (isset($success)) {
 ?>
 <form id="form1" method="post" action="">
   <p>
-    <label for="email">First Name:</label>
+    <label for="fname">First Name:</label>
     <input type="text" name="fname" id="fname" maxlength="44" <?php if ($errors || $missing){
       echo 'value="' . $fname . '" ';}?>required>
   </p>
   <p>
-    <label for="email">Last Name:</label>
+    <label for="lname">Last Name:</label>
     <input type="text" name="lname" id="lname" maxlength="44" <?php if ($errors || $missing){
       echo 'value="' . $lname . '" ';}?>required>
   </p>

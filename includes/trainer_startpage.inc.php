@@ -51,6 +51,7 @@ if ($showweek > 0) {
        <th>Week 3</th>
     </tr>
 <?php
+    $adstud = false;
     while ($row = $attendance->fetch_assoc()){ ?>
    <tr>
       <td><?php echo $row['fname'] . ' ' . $row['lname']; ?></td>
@@ -63,7 +64,8 @@ if ($showweek > 0) {
         } elseif ($i == $showweek){
           if ($row[$i . "_show"] != 0 && 
             $row[$i . "_show"] != $_SESSION['user_id']){
-              echo 'disabled="disabled" checked="yes"';
+              $adstud = true;
+              echo 'disabled="yes" checked="yes"';
           } else {
             echo ' value="'
               . $row['user_id'] .
@@ -87,6 +89,9 @@ if ($showweek > 0) {
         $attendance->close();
 }
 }
+if (@$adstud) { ?>
+<p><font color="red"><b>Attention:</b></font> You have an add/drop student in your class who attended another show earlier this week. Attendance for them is disabled; do not be alarmed.</p>
+<?php } 
 $result->close();
 ?>
 

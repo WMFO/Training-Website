@@ -43,6 +43,8 @@ if ($error) {
   echo $_GET['message'] . ', you have successfully registered. You may now login.';
 } elseif(isset($_GET['logout'])){?>
 <p>Logout Successful</p>
+<?php } elseif(isset($_GET['reset'])) {?>
+<p>Password Successfully Reset. You may now log in.</p>
 <?php } ?>
 <form id="form1" method="post" action="">
     <p>
@@ -59,8 +61,9 @@ if ($error) {
 </form>
 
 <?php if( $_SERVER['SERVER_NAME'] == "php.axfp.org") {
-  echo '<a href="register.php?key=3311656">Click here to Register</a>'; 
+  echo '<p><a href="register.php?key=3311656">Click here to Register</a></p>'; 
 } ?>
+<p><a href="passwdreset.php">Forgot Password?</a></p>
 <pre>
 __        ____  __ _____ ___    ____   ___  _ ____  
 \ \      / /  \/  |  ___/ _ \  |___ \ / _ \/ |___ \ 

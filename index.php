@@ -32,6 +32,11 @@ include("./includes/show_selection.inc.php");
 if($_SESSION['role'] == "trainer"){
 ?>
 <h1>Training Management Portal</h1>
+<?php if(1) {?>
+<table border="2" width="400px">
+<tr><td style="background-color: yellow"><b>Notice:</b> WMFO is transitioning to a two (2) week training time frame to enhance overall efficiency of the training process. The Fall 2012 training will be a trial run of the new system. To facilitate the shorter timeframe, we will also be using the TEMS, a training management infrastructure for keeping track of attendance and training goals. If you have any questions, feel free to ask via email.</td></tr>
+</table>
+<?php } ?>
 <p>Welcome! You can view DJ names and contact info below. Please take attendence and fill out the checklist every week during your show!</p>
 
 <?php include('./includes/trainer_startpage.inc.php'); ?>

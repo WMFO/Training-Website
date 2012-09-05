@@ -48,7 +48,6 @@ if ($showweek > 0) {
        <th>Name</th>
        <th>Present (Week 1)</th>
        <th>Week 2</th>
-       <th>Week 3</th>
     </tr>
 <?php
     $adstud = false;
@@ -56,7 +55,7 @@ if ($showweek > 0) {
    <tr>
       <td><?php echo $row['fname'] . ' ' . $row['lname']; ?></td>
 <?php 
-      for ($i = 1; $i<4; $i++){
+      for ($i = 1; $i<3; $i++){
         echo '<td><input type="checkbox"';
         if ($i < $showweek){
           if ($row[$i . '_attend'] == false) {echo 'disabled="disabled"';}

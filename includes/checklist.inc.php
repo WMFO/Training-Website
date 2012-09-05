@@ -16,7 +16,7 @@ if ($showweek > 0 && $showweek < 4){
   if ($result->num_rows == 0) {
     echo "All items complete for this session!";
   } else { ?>
-<p>Below you will find a checklist to be used as a guideline during your training. At the end of the day, check off the ones you have completed. Uncompleted items will remain on the list until you complete them, and new ones will be added for each of the three weeks of training.</p>
+<p>Below you will find a checklist to be used as a guideline during your training. At the end of the day, check off the ones you have completed. Uncompleted items will remain on the list until you complete them, and new ones will be added for each of the two weeks of training.</p>
 <form name="checklistform" method="post" action="">
 <table border="2">
 <tr>

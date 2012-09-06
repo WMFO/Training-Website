@@ -1,7 +1,7 @@
 <?php
 require_once("./includes/session_timeout.inc.php");
 if($_SESSION['role'] != 'admin'){
-   header('Location: /index.php');
+   header('Location: index.php');
 }
 include("./includes/session_var_setup.inc.php");
 if (isset($_POST['activate'])){

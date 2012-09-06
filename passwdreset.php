@@ -78,7 +78,7 @@ if(isset($_POST['passwd']) && $keyok) {
       $stmt->close();
       $sql = "DELETE from pass_reset WHERE user_id_fk = " . $user_id;
       $connw->query($sql);
-      Header("Location: /login.php?reset=yup");
+      Header("Location: login.php?reset=yup");
     } else {
       $error[] = "Something has done fucked up. Call Nick.";
     }

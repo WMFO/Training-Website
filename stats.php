@@ -7,7 +7,7 @@ if (isset($_POST['settingsubmit'])){
 }
 $connw = dbConnect('write');
 if($_SESSION['role'] != 'admin'){
-   header('Location: /');
+   header('Location: index.php');
 }
 $sql = "SELECT showduration FROM users WHERE role = 'trainer'";
 $result = $connw->query($sql);

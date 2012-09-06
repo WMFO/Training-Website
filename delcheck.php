@@ -5,10 +5,10 @@ $connw = dbConnect('write');
 if(isset($_POST['confirm'])){
   $sql = "DELETE FROM checklist WHERE id = " . $_GET['item'];
   $connw->query($sql);
-  header('Location: /checklist.php');
+  header('Location: checklist.php');
 }
 if($_SESSION['role'] != 'admin'){
-   header('Location: /index.php');
+   header('Location: index.php');
 }
 
 ?>

@@ -25,7 +25,7 @@ while ($row = $settingQuery->fetch_assoc()) {
 }
 
 if(@$_GET['key'] != $setting['regkey']) {
-  header("Location: /");
+  header("Location: login.php");
 }
 // list expected fields
 ?>

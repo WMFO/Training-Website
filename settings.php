@@ -6,7 +6,7 @@ if (isset($_POST['settingsubmit'])){
 }
 $connw = dbConnect('write');
 if($_SESSION['role'] != 'admin'){
-   header('Location: /index.php');
+   header('Location: index.php');
 }
 $sql = "SELECT * FROM settings";
 $result = $connw->query($sql);

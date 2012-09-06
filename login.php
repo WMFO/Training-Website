@@ -8,7 +8,7 @@ if (isset($_POST['login'])) {
   if (isset($_GET['next'])){
     $redirect = $_GET['next'];
   } else {
-    $redirect = '/';
+    $redirect = 'index.php';
   }
   require_once('./includes/authenticate_mysqli.inc.php');
 }

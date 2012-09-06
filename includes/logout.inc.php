@@ -10,7 +10,7 @@ if (isset($_POST['logout'])) {
   // end session and redirect
   session_destroy();
 
-  header('Location: /login.php?logout=yes');
+  header('Location: login.php?logout=yes');
   exit;
 }
 ?>

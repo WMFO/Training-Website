@@ -5,10 +5,10 @@ $connw = dbConnect('write');
 if(isset($_POST['confirm'])){
   $sql = "DELETE FROM users WHERE user_id = " . $_GET['user'];
   $connw->query($sql);
-  header('Location: /user.php');
+  header('Location: user.php');
 }
 if($_SESSION['role'] != 'admin'){
-   header('Location: /index.php');
+   header('Location: index.php');
 }
 
 ?>

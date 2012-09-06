@@ -55,6 +55,6 @@ echo $result->num_rows;
 ?></td></tr>
 
 </table>
-<p><a href="/">Home</a></p>
+<p><a href="index.php">Home</a></p>
 </body>
 </html>

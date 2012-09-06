@@ -59,7 +59,7 @@ while ($row = $result->fetch_assoc()){
 <?php } ?>
 </table>
 <p><input type="submit" value="Set User Activation" name="activate"></p>
-<p><a href="/">Home</a></p>
+<p><a href="index.php">Home</a></p>
 </form>
 </body>
 </html>

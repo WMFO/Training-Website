@@ -46,6 +46,6 @@ value="<?php echo $row['onum']; ?>"></td>
 </form>
 <p><a href="modcheck.php">Add New Item</a></p>
 <?php } ?>
-<p><a href="/">Home</a></p>
+<p><a href="index.php">Home</a></p>
 </body>
 </html>

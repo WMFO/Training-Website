@@ -48,6 +48,6 @@ if ($row['type'] == "int"){
 </table>
 <p><input type="submit" name="settingsubmit"></p>
 </form>
-<p><a href="/">Home</a></p>
+<p><a href="index.php">Home</a></p>
 </body>
 </html>

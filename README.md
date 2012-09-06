@@ -1,18 +1,21 @@
-ultimate-training-webapp
-========================
+Training Education Management System (TEMS)
+===========================================
 
 WMFO - Tufts Freeform Radio  
 training@wmfo.org  
 written by Nicholas Andre  
 For copyrights and licensing, see COPYING  
-Version 0.85  
+Version 0.95  
 
-A coordination platform to make sure DJs know how to answer phones. A login management platform capable of keeping track of registration, attendance, and checklist functionality. Currently it is very specifically tailored to the WMFO 3 week training process.
+A coordination platform to make sure DJs know how to answer phones. A login management platform capable of keeping track of registration, attendance, and checklist functionality. Currently it is very specifically tailored to the WMFO 2 week training process.
 
-A working test demonstration of the current/future code can be found at http://php.axfp.org Keep in mind that due to my laziness, this does NOT use SSL.
+A working test demonstration of the current/future code can be found at http://php.axfp.org .
 
 Changelog
 =========
+
+9/6/12 -- V 0.95  
+Functionality now includes password reset emailing with typo. 
 
 8/30/12 -- V 0.90  
 Production Beta Release. To undergo final testing and initial deployment.  

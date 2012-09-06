@@ -1,53 +1,60 @@
 <?php
 require_once("./includes/session_timeout.inc.php");
-require("./includes/connection.inc.php");
+require("./includes/session_var_setup.inc.php");
+require_once("./includes/connection.inc.php");
 if (isset($_POST['settingsubmit'])){
   require("./includes/settingupdate.inc.php");
 }
 $connw = dbConnect('write');
 if($_SESSION['role'] != 'admin'){
-   header('Location: /index.php');
+   header('Location: /');
 }
-$sql = "SELECT * FROM settings";
+$sql = "SELECT showduration FROM users WHERE role = 'trainer'";
 $result = $connw->query($sql);
 
 ?>
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="./includes/anytime.c.css" />
-<script src="./includes/jquery.min.js"></script>
-<script src="./includes/anytime.c.js"></script>
 <title="Settings Management">
 </head>
 <body>
-<h1>Settings Page</h1>
-<table width="50%"><tr><td>
-<p>Here you can configure settings. Non-date values are restricted to integers of length 7. Please don't stuff other things than that into them or bad things will happen. Since you're the training coordinator/authorized person, I trust you. Nick will not fix your mistakes.</p>
+<h1></h1>
+<table width="400px"><tr><td>
+<h1>Statistics Page</h1>
+<p>This stats page provides basic information, including alerts about incomplete checklists and missing attendance.</p>
 </td></tr></table>
-<form name="settings" method="post" action="">
 <table border="2">
-<?php while ($row = $result->fetch_assoc()){?>
-<tr>
-<td><b><?php echo $row['name']; ?></b></td>
+<tr><td>Number 1 hour shows:</td>
 <td><?php
-if ($row['type'] == "int"){
-  echo '<input type="text" name="' . $row['name'] . '" id="' . $row['name'] . 
-    '"  value="' . $row['nvalue'] . '" maxchars="7">';
-} elseif ($row['type'] == "date") {
-  echo '<input type="text" name="' . $row['name'] . '" id="' . $row['name'] 
-    . '" value="' . $row['dvalue'] . '"/>';?>
-<script>
-  AnyTime.picker( "<?php echo $row['name']; ?>",
-{ format: "%Y-%m-%d %T", firstDOW: 1 } );
-</script>
-<?php } ?> 
-</td>
-<td width="400px"><?php echo $row['Description']; ?></td>
+$show1hr = 0;
+$show2hr = 0;
+while($row = $result->fetch_assoc()){
+  if($row['showduration'] == 1) {
+    $show1hr++;
+  } else {
+    $show2hr++;
+  }
+}
+echo $show1hr;
+?></td></tr>
+<tr><td>Number 2 hour shows:</td>
+<td><?php echo $show2hr;?></td>
 </tr>
-<?php } ?>
+<tr>
+<td>Max Capacity</td>
+<td><?php echo $setting['max1hour'] * $show1hr
++ $setting['max2hour'] * $show2hr;?></td>
+</tr>
+<tr><td>Enrolled Students</td>
+<td><?php
+$result->close();
+$sql = "SELECT user_id FROM users WHERE role = 'trainee'";
+$result = $connw->query($sql);
+echo $result->num_rows;
+
+?></td></tr>
+
 </table>
-<p><input type="submit" name="settingsubmit"></p>
-</form>
 <p><a href="/">Home</a></p>
 </body>
 </html>

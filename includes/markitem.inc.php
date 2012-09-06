@@ -10,3 +10,5 @@ foreach ($_POST['checklist'] as $item) {
 }
 $connw = dbConnect('write');
 $result2 = $connw->query($attq);
+$result2->close();
+$connw->close();

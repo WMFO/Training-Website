@@ -48,6 +48,7 @@ if ($showweek > 0) {
        <th>Name</th>
        <th>Present (Week 1)</th>
        <th>Week 2</th>
+<?php if($_SESSION['enabled'] == 2) {echo "<th>Make-Up Week</th>";}?>
     </tr>
 <?php
     $adstud = false;
@@ -55,7 +56,13 @@ if ($showweek > 0) {
    <tr>
       <td><?php echo $row['fname'] . ' ' . $row['lname']; ?></td>
 <?php 
-      for ($i = 1; $i<3; $i++){
+      if ($_SESSION['enabled'] == 2) {
+        $rounds = 4;
+      } else {
+        $rounds = 3;
+      }
+
+      for ($i = 1; $i<$rounds; $i++){
         echo '<td><input type="checkbox"';
         if ($i < $showweek){
           if ($row[$i . '_attend'] == false) {echo 'disabled="disabled"';}

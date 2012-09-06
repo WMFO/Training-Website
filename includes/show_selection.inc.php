@@ -107,7 +107,7 @@ if ($avail > 0) {
 }
 }
 //$result->close();
-if ($showweek > 0 && $showweek < 3 && $_SESSION['showchoice']) {
+if ($showweek > 0 && $showweek < 4 && $_SESSION['showchoice']) {
 ?>
 <h2>Weekly Training Goals:</h2>
 <ul>

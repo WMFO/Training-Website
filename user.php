@@ -21,6 +21,8 @@ $result = $conn->query($sql);
 <body>
 <h1>The Alimighty User Management Page</h1>
 <p>Below is a list of users. Users are active when they sign up (the key ensures that random ruffians do not wander into the system). You may disabled or delete a user, or you may select early registration to allow them to choose a show before the typical deadline.</p>
+<p><b>In order to set make-up show,</b> set all candidates to the "Make-up Show," as well as the trainer who will be teaching. Any trainers which are disabled will not show up in registration results, but obviously you should not lock anyone out before their show has completed.</p>
+<p>Once you have selected the DJ as a make-up lesson teacher, press the "boot" button to kick all DJs (who have completed their training) out of the list. But be careful, Nick will not fix your mistakes.</p>
 <form name="usermanform" method="post" action="">
 <table border="2">
 <tr>
@@ -32,7 +34,7 @@ $result = $conn->query($sql);
 <th>Show Time/Day</th>
 <th>Disabled</th>
 <th>Enabled</th>
-<th>Extended Registration/Add Drop</th>
+<th>Extended Registration/Makeup Show</th>
 </tr>
 <?php
 while ($row = $result->fetch_assoc()){

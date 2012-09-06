@@ -1,4 +1,9 @@
 <?php
+if($_SERVER["HTTPS"] != "on") {
+     header("HTTP/1.1 301 Moved Permanently");
+        header("Location: https://" . $_SERVER["SERVER_NAME"] . $_SERVER["REQUEST_URI"]);
+        exit();
+}
 $expected = array('fname', 'lname', 'email', 'pwd', 'conf_pwd', 'role', 'showday', 'showtime', 'showpm', 'showduration',
   'phone', 'showname');
 // set required fields

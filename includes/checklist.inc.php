@@ -4,7 +4,7 @@ if ($showweek > 0 && $showweek < 4){
   if (isset($_POST['submitcheck']) && isset($_POST['checklist'])){
     require('markitem.inc.php');
   }
-  $connw = $dbConnect('write');
+  $connw = dbConnect('write');
   $sql= "SELECT item, id, onum, 
     IF (checklist_fk IS NULL, FALSE, TRUE) completed
       FROM checklist

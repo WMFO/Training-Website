@@ -9,7 +9,7 @@ if (isset($_POST['register']) && isset($_POST['showchoice'])){
   $error[] = "Please select a show.";
 }
 if (isset($_POST['drop'])){
-  require('/var/www/html/php/includes/drop_show.inc.php');
+  require('./includes/drop_show.inc.php');
 }
 //add please select a show condition
 if ($_SESSION['showchoice']){

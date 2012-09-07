@@ -162,8 +162,8 @@ if ($problems) {
 <?php }
 ?>
 </table>
-</div>
 <?php } ?>
+</div>
 <p><a href="index.php">Home</a></p>
 </body>
 </html>

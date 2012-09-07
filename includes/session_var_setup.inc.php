@@ -14,7 +14,12 @@ while ($row = $settingQuery->fetch_assoc()) {
 }
 $currentTime= mktime();
 $training_start = $setting['training_start'];
-$showweek = floor(($currentTime - $training_start) / 604800) + 1;
+$showweek_broad = floor(($currentTime - $training_start) / 604800) + 1;
+if($showweek_broad > 3) {
+  $showweek= 3;
+} else {
+  $showweek = $showweek_broad;
+}
 if (($currentTime > $setting['reg_open'] && $currentTime < $setting['reg_close']) || $_SESSION['enabled'] == 2) {
   $register = true;
 } else {

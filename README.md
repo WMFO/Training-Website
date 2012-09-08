@@ -14,6 +14,9 @@ A working test demonstration of the current/future code can be found at http://p
 Changelog
 =========
 
+9/8/12 -- V 0.98  
+Added Statistics information, global reset, stronger password hashing based on blowfish. Ready for initial deployment. Still to come are the full CMS features of the Checklist and User Modification (this may not be implemented in favor of simply razing all user accounts at the end of the training cycle.) This release requires setting your pwd column to VARCHAR(60).  
+
 9/6/12 -- V 0.95  
 Functionality now includes password reset emailing with typo. 
 

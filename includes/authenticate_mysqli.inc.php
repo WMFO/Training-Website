@@ -14,6 +14,9 @@ $stmt->execute();
 $stmt->fetch();
 // encrypt the submitted password with the salt and compare with stored password
 $passok = sha1($password . $salt) == $storedPwd;
+require('./includes/PasswordHash.php');
+$megahasher = new PasswordHash(8,FALSE);
+$passok = $megahasher->CheckPassword($password, $storedPwd);
 if ($passok && ($enabled || $role == "admin")){
   $_SESSION['authenticated'] = 'Jesse Weeks';
   $_SESSION['user_id'] = $user_id;

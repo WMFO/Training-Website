@@ -4,6 +4,15 @@ if($_SESSION['role'] != 'admin'){
    header('Location: index.php');
 }
 include("./includes/session_var_setup.inc.php");
+if(isset($_POST['globalreset'])){
+  $sql = "DELETE FROM users WHERE role != 'admin'";
+  $connw=dbConnect('write');
+  $connw->query($sql);
+  $sql = "DELETE FROM attendance";
+  $connw->query($sql);
+  $sql = "DELETE FROM checklist_completion";
+  $connw->query($sql);
+}
 if (isset($_POST['activate'])){
   require("./includes/usernable.inc.php");
 }
@@ -60,6 +69,17 @@ while ($row = $result->fetch_assoc()){
 </table>
 <p><input type="submit" value="Set User Activation" name="activate"></p>
 <p><a href="index.php">Home</a></p>
+</form>
+<h2>The Global Reset</h2>
+<p>The following button will delete all trainees and trainers in preparation for the next training session. This change is permanent and unrecoverable. Don't complain to Nick if you accidentally push this button when it is not appropriate to do so. Thanks.</p>
+<form name="resetform" action="" method="post">
+<p>
+<label for="globalreset">I want to destroy all users</label>
+<input type="checkbox" name="globalreset">
+</p>
+<p>
+<input type="submit" value="Delete All Users" name="reset">
+</p>
 </form>
 </body>
 </html>

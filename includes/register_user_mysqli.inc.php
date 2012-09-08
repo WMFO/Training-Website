@@ -1,8 +1,9 @@
 <?php
 //mysqli_report(MYSQLI_REPORT_ALL);
 require_once('./classes/Ps2/CheckPassword.php');
+require_once('./includes/PasswordHash.php');
 $errors = array();
-$checkPwd = new Ps2_CheckPassword($pwd, 6);
+$checkPwd = new Ps2_CheckPassword($pwd, 8);
 //$checkPwd->requireMixedCase();
 //$checkPwd->requireNumbers(2);
 //$checkPwd->requireSymbols();
@@ -31,8 +32,10 @@ if (!$errors) {
   // create a salt using the current timestamp
   $salt = time();
   // encrypt the password and salt with SHA1
-  $hash = sha1($pwd . $salt);
+  //$hash = sha1($pwd . $salt);
   // prepare SQL statement
+  $megahasher = new PasswordHash(8,FALSE);
+  $hash = $megahasher->HashPassword($pwd);
   $sql = 'INSERT INTO users (fname, lname, email, salt, pwd, role, showday, showtime, showpm, showduration, phone, showname)
     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
   $stmt = $conn->stmt_init();

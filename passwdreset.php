@@ -67,8 +67,10 @@ if(isset($_POST['passwd']) && $keyok) {
     $errors[] = "Your passwords don't match.";
   }
   if (!$error) {
-    $salt = time();
-    $hash = sha1($pwd . $salt);
+    //$hash = sha1($pwd . $salt);
+    require('./includes/PasswordHash.php');
+    $megahasher = new PasswordHash(8,FALSE);
+    $hash = $megahasher->HashPassword($pwd);
     $sql = 'UPDATE users SET salt = ?, pwd = ? WHERE user_id = ' . $user_id;
     $stmt = $connw->stmt_init();
     $stmt = $connw->prepare($sql);

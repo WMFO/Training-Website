@@ -15,7 +15,7 @@ if (isset($_POST['drop'])){
 if ($_SESSION['showchoice']){
 $sql = "SELECT fname, showname, showday, showduration, showtime, showpm, user_id FROM users WHERE user_id = " . $_SESSION['showchoice'];
 } else {
-$sql = "SELECT fname, showname, showday, showduration, showtime, showpm, user_id, enrolled FROM users WHERE role = 'trainer' AND enabled = '1'";
+$sql = "SELECT fname, showname, showday, showduration, showtime, showpm, user_id FROM users WHERE role = 'trainer' AND enabled = '1'";
 }
 $result = $conn->query($sql) or die($conn->error);
 $numRows = $result->num_rows;
@@ -80,10 +80,13 @@ echo '<p>A total of ' . $numRows . ' shows are hosting new DJs.</p>';
       <td><?php echo $row['showtime'] . $row['showpm']; ?></td>
       <td><?php echo $row['showduration'] . ' hr(s)'; ?></td>
       <td><?php 
+$sql = "SELECT * FROM users WHERE showchoice = " . $row['user_id'];
+$result2 = $conn->query($sql);
+$enrolled = $result2->num_rows;
 if ($row['showduration'] == 1){
-  $avail=$setting['max1hour'] - $row['enrolled'];
+  $avail=$setting['max1hour'] - $enrolled;
 } elseif ($row['showduration'] == 2){
-  $avail=$setting['max2hour'] - $row['enrolled'];
+  $avail=$setting['max2hour'] - $enrolled;
 } else {
   $avail= "you done fucked up";
 }

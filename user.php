@@ -4,7 +4,7 @@ if($_SESSION['role'] != 'admin'){
    header('Location: index.php');
 }
 include("./includes/session_var_setup.inc.php");
-if(isset($_POST['globalreset'])){
+if(isset($_POST['globalreset']) && @$_POST['supersure'] == 3){
   $sql = "DELETE FROM users WHERE role != 'admin'";
   $connw=dbConnect('write');
   $connw->query($sql);
@@ -75,7 +75,11 @@ while ($row = $result->fetch_assoc()){
 <form name="resetform" action="" method="post">
 <p>
 <label for="globalreset">I want to destroy all users</label>
-<input type="checkbox" name="globalreset">
+<input type="checkbox" id="globalreset" name="globalreset">
+</p>
+<p>
+<label for="supersure">If I'm super sure I want to do this, I'll put a 3 in this box:</label>
+<input type="textarea" maxlength="1" name="supersure">
 </p>
 <p>
 <input type="submit" value="Delete All Users" name="reset">

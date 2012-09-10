@@ -12,7 +12,7 @@ if (isset($_POST['reset'])){
 $sql = "SELECT fname, lname, email, phone, user_id FROM users WHERE showchoice = " . $_SESSION['user_id'];
 $result = $conn->query($sql) or die($conn->error);
 $numRows = $result->num_rows;
-?>
+if($numRows) {?>
 <table border="2">
   <tr>
     <th>Name</th>
@@ -27,7 +27,7 @@ $numRows = $result->num_rows;
     </tr>
     <?php } ?>
 </table>
-<?php
+<?php }
 if ($showweek > 0) {
   $sql = "SELECT * FROM users JOIN attendance
     on users.user_id=attendance.user_id WHERE showchoice = "

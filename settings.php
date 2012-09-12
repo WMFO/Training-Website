@@ -17,7 +17,7 @@ $result = $connw->query($sql);
 <link rel="stylesheet" type="text/css" href="./includes/anytime.c.css" />
 <script src="./includes/jquery.min.js"></script>
 <script src="./includes/anytime.c.js"></script>
-<title="Settings Management">
+<title>Settings Management</title>
 </head>
 <body>
 <h1>Settings Page</h1>
@@ -49,5 +49,6 @@ if ($row['type'] == "int"){
 <p><input type="submit" name="settingsubmit"></p>
 </form>
 <p><a href="index.php">Home</a></p>
+<i><font color="grey">For a sanity check, the current time is <?php echo strftime("%c" , time()); ?></font></i>
 </body>
 </html>

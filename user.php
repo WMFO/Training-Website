@@ -35,7 +35,7 @@ $result = $conn->query($sql);
 <form name="usermanform" method="post" action="">
 <table border="2">
 <tr>
-<th>Delete</th>
+<th>Mod/Delete</th>
 <th>Name</th>
 <th>Email</th>
 <th>Type</th>
@@ -49,7 +49,8 @@ $result = $conn->query($sql);
 while ($row = $result->fetch_assoc()){
 ?>
 <tr>
-<td><a href="deluser.php?user=<?php echo $row['user_id'];?>">DEL</a></td>
+<td><a href="moduser.php?user=<?php echo $row['user_id'];?>">MOD</a> or
+ <a href="deluser.php?user=<?php echo $row['user_id'];?>">DEL</a></td>
 <td><?php echo $row['fname'] . ' ' . $row['lname']; ?></td>
 <td><?php echo $row['email'];?></td>
 <td><?php echo $row['role']; ?></td>

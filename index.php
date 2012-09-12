@@ -25,6 +25,7 @@ if($_SESSION['role'] == "trainee"){
 include("./includes/show_selection.inc.php");
 
 ?>
+<a href="moduser.php">Modify User Settings</a>
 <?php
 }
 ?>
@@ -33,7 +34,7 @@ include("./includes/show_selection.inc.php");
 if($_SESSION['role'] == "trainer"){
 ?>
 <h1>Training Management Portal</h1>
-<?php if(1) {?>
+<?php if(0) {?>
 <table border="2" width="400px">
 <tr><td style="background-color: yellow"><b>Notice:</b> WMFO is transitioning to a two (2) week training time frame to enhance overall efficiency of the training process. The Fall 2012 training will be a trial run of the new system. To facilitate the shorter timeframe, we will also be using the TEMS, a training management infrastructure for keeping track of attendance and training goals. If you have any questions, feel free to ask via email.</td></tr>
 </table>
@@ -43,6 +44,7 @@ if($_SESSION['role'] == "trainer"){
 <?php include('./includes/trainer_startpage.inc.php'); ?>
 
 <?php  include('./includes/checklist.inc.php');
+?><a href="moduser.php">Modify User Settings</a> <?php
 } ?>
 <?php include('./includes/logout.inc.php'); ?>
 <p>Problems? Email training@wmfo.org.</p>

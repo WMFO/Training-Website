@@ -14,6 +14,9 @@ A working test demonstration of the current/future code can be found at http://p
 Changelog
 =========
 
+9/12/12 -- V 1.15  
+User Modification is now possible from user page in global admin or from individual user pages.  
+
 9/9/12 -- V 1.00  
 Added checklist modification capability. User modification still impossible, but deemed unecessary for the mean time given the global delete feature. This is the primary release for the system. Bug fixes may follow.
 

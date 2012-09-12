@@ -133,7 +133,8 @@ if ($keyok) {
 <label for="email">Email:</label>
 <input type="text" name="email">
 </p>
-<p><input type="submit" value="Password Reset" name="emaillookup"></p>
+<p><input type="submit" value="Password Reset" name="emaillookup"> or 
+<a href="index.php">Home</a></p>
 </form>
 <?php } ?>
 </body>

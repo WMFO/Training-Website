@@ -105,7 +105,7 @@ if ($avail > 0) {
  </p>
  </form>
 <?php } else { ?>
-<p>Registration is not open yet or is closed. It is available between <?php echo strftime( "%c", $setting['reg_open']);?> until <?php echo strftime("%c", $setting['reg_close']);?>. For help, contact the training coordinator.</p>
+<p>Registration is not open yet. It is available between <?php echo strftime( "%c", $setting['reg_open']);?> until <?php echo strftime("%c", $setting['reg_close']);?>. For help, contact the training coordinator.</p>
 <?php
 }
 }

@@ -1,6 +1,7 @@
 <?php
 require_once("./includes/session_timeout.inc.php");
 require("./includes/session_var_setup.inc.php");
+date_default_timezone_set('America/New_York'); 
 
 if($_SESSION['role'] == "admin"){
   ?>

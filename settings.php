@@ -1,4 +1,5 @@
 <?php
+date_default_timezone_set('America/New_York');
 require_once("./includes/session_timeout.inc.php");
 require("./includes/connection.inc.php");
 if (isset($_POST['settingsubmit'])){

@@ -1,7 +1,7 @@
 <?php
 require_once("./includes/session_timeout.inc.php");
 require("./includes/connection.inc.php");
-$redirect = "index.php";
+$redirect = "user.php";
 if(isset($_GET['user']) && !is_numeric($_GET['user'])){
     die("you dunderfuck. item should be numeric.");
     }

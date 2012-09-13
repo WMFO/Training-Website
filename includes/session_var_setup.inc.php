@@ -1,4 +1,5 @@
 <?php
+date_default_timezone_set('America/New_York');
 $settingQuery = array();
 require_once('connection.inc.php');
 $conn = dbConnect('read');

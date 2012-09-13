@@ -71,11 +71,11 @@ if(isset($_POST['passwd']) && $keyok) {
     require('./includes/PasswordHash.php');
     $megahasher = new PasswordHash(8,FALSE);
     $hash = $megahasher->HashPassword($pwd);
-    $sql = 'UPDATE users SET salt = ?, pwd = ? WHERE user_id = ' . $user_id;
+    $sql = 'UPDATE users SET pwd = ? WHERE user_id = ' . $user_id;
     $stmt = $connw->stmt_init();
     $stmt = $connw->prepare($sql);
     if ($stmt != false) {
-      $stmt->bind_param('is', $salt, $hash);
+      $stmt->bind_param('s', $hash);
       $stmt->execute();
       $stmt->close();
       $sql = "DELETE from pass_reset WHERE user_id_fk = " . $user_id;

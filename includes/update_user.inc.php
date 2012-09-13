@@ -12,6 +12,9 @@ if (!$errors) {
   foreach ($things as $item) {
     $$item = $_POST[$item];
   }
+  if ($role == "admin") {
+    die("You dunderfuck");
+  }
   // include the connection file
   $sql = 'UPDATE users SET fname=?, lname=?, email=?, role=?, showday=?, showtime=?, showpm=?, showduration=?, phone=?, showname=? WHERE user_id = ?';
   $stmt = $connw->stmt_init();
@@ -27,7 +30,7 @@ if (!$errors) {
       $fqdn = 'Location: ' . $redirect . "?message=" . $fname;
       header($fqdn);
     } else {
-      $errors[] = 'Sorry, somebody has done fucked up. Error code 3.14159' . $stmt->errno;
+      $errors[] = 'You don\'t appear to have made any changes...';
     }
   } else echo("Statement failed: " . "<br>");
 }

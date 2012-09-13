@@ -111,12 +111,12 @@ if (isset($success)) {
   </p>
     <p>
         <label for="trainee">Trainee</label>
-        <input type="radio" onchange="hideA(this)" name="role" value="trainee"
-<?php $trainchecked = !(($errors || $missing) && $role == 'trainee') && !isset($_POST);
+        <input type="radio" onchange="hideA(this)" name="role" id="trainee" value="trainee"
+<?php $trainchecked = (($errors || $missing) && $role == 'trainer') && isset($_POST);
 if(!$trainchecked){ echo "checked";} ?>>
         <br />
         <label for="trainer">Trainer</label>
-        <input type="radio" onchange="showA(this)" name="role" value="trainer" <?php if($trainchecked){ echo 'checked'; }?>>
+        <input type="radio" onchange="showA(this)" name="role" id="trainer" value="trainer" <?php if($trainchecked){ echo 'checked'; }?>>
     </p>
 
     <div id="B" <?php if(!$trainchecked){ ?>

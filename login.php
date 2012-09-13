@@ -26,12 +26,12 @@ if (isset($_POST['login'])) {
 <style>
 label {
         display:inline-block;
-        width:65px;
+        width:85px;
         text-align:right;
         padding-right:2px;
 }
 input[type="submit"] {
-          margin-left:75px;
+          margin-left:95px;
 }
 </style>
 </head>

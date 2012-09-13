@@ -1,4 +1,5 @@
 <?php
+date_default_timezone_set('America/New_York');
 $update2 = dbConnect('write');
 $uupd = "UPDATE settings SET nvalue = 
 CASE `name`";

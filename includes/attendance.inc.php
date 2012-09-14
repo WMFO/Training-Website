@@ -34,6 +34,9 @@ $sql="UPDATE attendance SET " . $showweek . "_attend = true, "
   . " && " . $showweek . "_attend = true) && (";
 $uor = false;
 foreach ($_POST['attends'] as $user){
+  if (!is_numeric($user)){
+    die("you dunderfuck");
+  }
   if ($uor){
     $sql .= " ||";
   } 

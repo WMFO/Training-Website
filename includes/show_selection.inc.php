@@ -15,7 +15,7 @@ if (isset($_POST['drop'])){
 if ($_SESSION['showchoice']){
 $sql = "SELECT fname, showname, showday, showduration, showtime, showpm, user_id FROM users WHERE user_id = " . $_SESSION['showchoice'];
 } else {
-$sql = "SELECT fname, showname, showday, showduration, showtime, showpm, user_id FROM users WHERE role = 'trainer' AND enabled = '1'";
+$sql = "SELECT fname, showname, showday, showduration, showtime, showpm, user_id FROM users WHERE role = 'trainer' AND enabled = '1' ORDER BY showpm DESC, showtime DESC";
 }
 $result = $conn->query($sql) or die($conn->error);
 $numRows = $result->num_rows;

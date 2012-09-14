@@ -21,7 +21,9 @@ if (!empty($email)) {
     $errors['email'] = "Your email appears invalid. Please try again.";
   }
 }
-
+if(strstr($fname, ';') || strstr($lname, ';')) {
+  $errors[] = "Sorry Ben, that function is not permitted.";
+}
 if (!$errors) {
   // include the connection file
   require_once('connection.inc.php');

@@ -73,7 +73,6 @@ input[type="submit"] {
 
 <body>
 <h1>Register user</h1>
-<p><i>Please refrain from SQL injection. This particular form is resistant to that tactic.</i></p>
 <?php
 if (isset($success)) {
   echo "<p>$success</p>";

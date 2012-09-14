@@ -179,7 +179,7 @@ if(!$trainchecked){ echo "checked";} ?>>
                     if ($_POST && $_POST['showday'] == 'Saturday') {
                       echo 'selected';
                     } ?>>Saturday</option>
-                                        <option value="Wednesday"
+                                        <option value="Sunday"
 <?php
                       if ($_POST && $_POST['showday'] == 'Sunday') {
                         echo 'selected';

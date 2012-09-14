@@ -163,7 +163,7 @@ if (isset($errors) && !empty($errors)) {
                     if ($row['showday'] == 'Saturday') {
                       echo 'selected';
                     } ?>>Saturday</option>
-                                        <option value="Wednesday"
+                                        <option value="Sunday"
 <?php
                       if ($row['showday'] == 'Sunday') {
                         echo 'selected';

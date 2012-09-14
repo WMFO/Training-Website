@@ -5,7 +5,7 @@ $tsql = "DELETE FROM pass_reset WHERE CAST('" . date("Y-m_d H:i:s", TIME() - 360
 $connw->query($tsql);
 if (isset($_POST['emaillookup'])){
   $error = array();
-  $email = mysql_real_escape_string($_POST['email'], $connw);
+  $email = $connw->real_escape_string($_POST['email']);
   $sql = "SELECT user_id FROM users WHERE email = '" . $email . "'";
   $result = $connw->query($sql);
   if($result->num_rows) {

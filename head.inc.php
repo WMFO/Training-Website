@@ -22,15 +22,20 @@ Released   : 20120205
 <div id="wrapper">
 	<div id="header">
 		<div id="logo">
-			<h1><a href="#">Training</a></h1>
+			<h1><a href="#">wmfo tems</a></h1>
 		</div>
 		<div id="menu">
 			<ul>
-				<li class="first current_page_item"><a href="#">portal</a></li>
-				<li><a href="#">Edit Info</a></li>
-				<li><a href="#">Password Reset</a></li>
-				<li><a href="#">About</a></li>
-				<li class="last"><a href="#">logout</a></li>
+				<li class="first current_page_item"><a href="index.php">home</a></li>
+<?php if(@$_SESSION['role'] == "admin"){?>
+        <li><a href="user.php">Manage Users</a></li>
+        <li><a href="checklist.php">Checklist</a></li>
+        <li><a href="settings.php">Settings</a></li>
+<?php } else { ?>        <li><a href="moduser.php">Edit Info</a></li>
+				<li><a href="passwdreset.php">Password Reset</a></li>
+<?php } ?>
+				<li><a href="about.php">About</a></li>
+				<li class="last"><a href="?logout=yes">logout</a></li>
 			</ul>
 			<br class="clearfix" />
 		</div>

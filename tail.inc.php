@@ -15,7 +15,7 @@
 			</div>
 			<h3>wmfo training system</h3>
 			<p>
-                        The WMFO Training Education Management System (the TEMS) was built and maintained by Nicholas Andre.
+                        The WMFO Training Education Management System (the TEMS&reg;) was built in the summer of 2012 by Nicholas Andre.
 </p>
 <p><i> It's like SIS, but not terrible.	</i>
 			</p>
@@ -24,7 +24,7 @@
 	</div>
 </div>
 <div id="footer">
-	(c) 2012 Nicholas Andre. Design by <a href="http://www.freecsstemplates.org/">FCT</a>.
+(c) <?php echo date("Y"); ?> Nicholas Andre. Design by <a href="http://www.freecsstemplates.org/">FCT</a>.
 </div>
 </body>
 </html>

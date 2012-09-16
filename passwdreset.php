@@ -86,10 +86,8 @@ if(isset($_POST['passwd']) && $keyok) {
     }
   }
 } 
+include("./head.inc.php");
 ?>
-<html>
-<head>
-<title>Password Reset</title>
 <style>
 label {
         display:inline-block;
@@ -101,9 +99,8 @@ input[type="submit"] {
           margin-left:122px;
 }
 </style>
-</head>
-<body>
 <h1>Password Reset</h1>
+<br />
 <?php
 if(isset($error)) {
   echo "<ul>";
@@ -136,6 +133,5 @@ if ($keyok) {
 <p><input type="submit" value="Password Reset" name="emaillookup"> or 
 <a href="index.php">Home</a></p>
 </form>
-<?php } ?>
-</body>
-</html>
+<?php }
+include('./foot.inc.php'); ?>

@@ -17,12 +17,8 @@ if (isset($_POST['login'])) {
   }
   require_once('./includes/authenticate_mysqli.inc.php');
 }
+include('./head.inc.php');
 ?>
-<!DOCTYPE HTML>
-<html>
-<head>
-<meta charset="utf-8">
-<title>Login</title>
 <style>
 label {
         display:inline-block;
@@ -34,10 +30,9 @@ input[type="submit"] {
           margin-left:95px;
 }
 </style>
-</head>
 
-<body>
 <h1>Login Page</h1>
+<br />
 <?php
 if ($error) {
   echo "<p>$error</p>";
@@ -77,6 +72,4 @@ __        ____  __ _____ ___    ____   ___  _ ____
    \_/\_/  |_|  |_|_|   \___/  |_____|\___/|_|_____|
                                                     
 </pre>
-<a href="about.php">About</a>
-</body>
-</html>
+<?php include('./tail.inc.php');?>

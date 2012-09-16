@@ -29,10 +29,6 @@ Welcome,
 <p>Welcome to the WMFO training portal.</p>
 <?php }
 include("./includes/show_selection.inc.php");
-
-?>
-<a href="moduser.php">Modify User Settings</a>
-<?php
 }
 ?>
 
@@ -55,7 +51,6 @@ Welcome,
 <?php include('./includes/trainer_startpage.inc.php'); ?>
 
 <?php  include('./includes/checklist.inc.php');
-?><a href="moduser.php">Modify User Settings</a> <?php
 } ?>
 <p>Problems? Email training@wmfo.org.</p>
 <?php include('./tail.inc.php');

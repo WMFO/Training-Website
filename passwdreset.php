@@ -102,17 +102,19 @@ input[type="submit"] {
 <h1>Password Reset</h1>
 <br />
 <?php
+if ($keyok) {
+?>
+<form name="passwdform" method="post" action="">
+<p>Please enter a new password for your account:</p>
+<?php
 if(isset($error)) {
   echo "<ul>";
   foreach($error as $message) {?>
       <li><?php echo $message;?></li>
 <?php }
 echo "</ul>";
-}
-if ($keyok) {
-?>
-<form name="passwdform" method="post" action="">
-<p>Please enter a new password for your account:</p>
+echo "<br />";
+} ?>
 <p>
 <label for="password">Enter Password:</label>
 <input type="password" name="pwd">
@@ -125,6 +127,15 @@ if ($keyok) {
 <?php
 } else { ?>
 <p>Please enter in a valid, registered email below. You will be emailed a reset link that will be valid for sixty (60) minutes. To reset your account password, simply check your email and follow the link to a reset form.<p>
+<?php
+if(isset($error)) {
+  echo "<ul>";
+  foreach($error as $message) {?>
+      <li><?php echo $message;?></li>
+<?php }
+echo "</ul>";
+echo "<br />";
+} ?>
 <form name="emailverification" action="passwdreset.php" method="post">
 <p>
 <label for="email">Email:</label>
@@ -134,4 +145,4 @@ if ($keyok) {
 <a href="index.php">Home</a></p>
 </form>
 <?php }
-include('./foot.inc.php'); ?>
+include('./tail.inc.php'); ?>

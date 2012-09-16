@@ -11,18 +11,14 @@ if($_SESSION['role'] != 'admin'){
 }
 $sql = "SELECT * FROM settings";
 $result = $connw->query($sql);
-
+include('./head.inc.php');
 ?>
-<html>
-<head>
 <link rel="stylesheet" type="text/css" href="./includes/anytime.c.css" />
 <script src="./includes/jquery.min.js"></script>
 <script src="./includes/anytime.c.js"></script>
-<title>Settings Management</title>
-</head>
-<body>
 <h1>Settings Page</h1>
-<table width="50%"><tr><td>
+<br />
+<table><tr><td>
 <p>Here you can configure settings. Non-date values are restricted to integers of length 7. Please don't stuff other things than that into them or bad things will happen. Since you're the training coordinator/authorized person, I trust you. Nick will not fix your mistakes.</p>
 </td></tr></table>
 <form name="settings" method="post" action="">
@@ -43,13 +39,11 @@ if ($row['type'] == "int"){
 </script>
 <?php } ?> 
 </td>
-<td width="400px"><?php echo $row['Description']; ?></td>
+<td><?php echo $row['Description']; ?></td>
 </tr>
 <?php } ?>
 </table>
 <p><input type="submit" name="settingsubmit"></p>
 </form>
-<p><a href="index.php">Home</a></p>
 <i><font color="grey">For a sanity check, the current time is <?php echo strftime("%c" , time()); ?></font></i>
-</body>
-</html>
+<?php include('./tail.inc.php'); ?>

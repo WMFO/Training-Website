@@ -8,6 +8,7 @@ if (isset($_POST['reorder']) && $role == "admin") {
 }
 $sql = "SELECT * FROM checklist ORDER BY onum ASC";
 $result = $conn->query($sql);
+include('./head.inc.php');
 ?>
 <html>
 <head>
@@ -47,7 +48,5 @@ value="<?php echo $row['onum']; ?>"></td>
 <p><input type="submit" name="reorder" value="Change Order"></p>
 </form>
 <p><a href="modcheck.php">Add New Item</a></p>
-<?php } ?>
-<p><a href="index.php">Home</a></p>
-</body>
-</html>
+<?php } 
+include('./tail.inc.php');?>

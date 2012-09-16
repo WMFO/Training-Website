@@ -74,6 +74,7 @@ $students = $conn->query($sql);
   <tr>
   <th>Name</th>
   <th>Email</th>
+  <th>Registered?</th>
   <th>Attendance</th>
   </tr>
 <?php
@@ -81,6 +82,11 @@ $students = $conn->query($sql);
 <tr>
 <td><?php echo $student['fname'] . ' ' . $student['lname']; ?></td>
 <td><?php echo $student['email']; ?></td>
+<td><?php if($student['showchoice'] == 0) {
+  echo "nope";
+} else {
+  echo "yup: " . $student['showchoice'];
+}?></td>
 <td><?php 
 $numweeks = 0;
   for ($i = $showweek; $i > 0; $i--) {

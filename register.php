@@ -32,11 +32,8 @@ while ($row = $settingQuery->fetch_assoc()) {
 if(@$_GET['key'] != $setting['regkey']) {
   header("Location: login.php");
 }
-// list expected fields
+include('./head.inc.php');
 ?>
-<!DOCTYPE HTML>
-<html>
-<head>
 <script language="Javascript">
 function hideA(x)
 {
@@ -56,8 +53,6 @@ function showA(x)
   }
 }
 </script>
-<meta charset="utf-8">
-<title>Register user</title>
 <style>
 label {
         display:inline-block;
@@ -69,20 +64,19 @@ input[type="submit"] {
         margin-left:122px;
 }
 </style>
-</head>
-
-<body>
 <h1>Register user</h1>
+<br />
 <?php
 if (isset($success)) {
   echo "<p>$success</p>";
   echo '<p><a href="login.php">Login</a></p>';
 } elseif (isset($errors) && !empty($errors)) {
-  echo '<ul>';
+  echo '<ul><font color="red">';
   foreach ($errors as $error) {
     echo "<li>$error</li>";
   }
-  echo '</ul>';
+  echo '</ul></font>';
+  echo '<br />';
 }
 ?>
 <form id="form1" method="post" action="">
@@ -231,5 +225,4 @@ if(!$trainchecked){ echo "checked";} ?>>
     <input name="register" type="submit" id="register" value="Register">
   </p>
 </form>
-</body>
-</html>
+<?php include('./tail.inc.php');?>

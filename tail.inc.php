@@ -24,7 +24,7 @@
 	</div>
 </div>
 <div id="footer">
-(c) <?php echo date("Y"); ?> Nicholas Andre. Design by <a href="http://www.freecsstemplates.org/">FCT</a>.
+(c) <?php echo date("Y"); ?> Nicholas Andre. design by <a href="http://www.freecsstemplates.org/">fct</a>.
 </div>
 </body>
 </html>

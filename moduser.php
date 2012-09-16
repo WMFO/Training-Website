@@ -15,10 +15,8 @@ $connw = dbConnect('write');
 if(isset($_POST['update'])){
   require('./includes/update_user.inc.php');
 }
+include('./head.inc.php');
 ?>
-<!DOCTYPE HTML>
-<html>
-<head>
 <script language="Javascript">
 function hideA(x)
 {
@@ -38,8 +36,6 @@ function showA(x)
   }
 }
 </script>
-<meta charset="utf-8">
-<title>Modify user</title>
 <style>
 label {
         display:inline-block;
@@ -51,9 +47,7 @@ input[type="submit"] {
         margin-left:122px;
 }
 </style>
-</head>
 
-<body>
 <h1>Modify User </h1>
 <p>Update info below, then hit update when you're done.</p>
 
@@ -215,5 +209,4 @@ if (isset($errors) && !empty($errors)) {
     <input name="update" type="submit" id="update" value="Update"> or <a href="index.php">Home</a>
   </p>
 </form>
-</body>
-</html>
+<?php include('./tail.inc.php');?>

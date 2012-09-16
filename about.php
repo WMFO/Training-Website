@@ -1,8 +1,4 @@
-<html>
-<head>
-<title>About</title>
-</head>
-<body>
+<?php include('./head.inc.php');?>
 <h1>About the Training Education Management System</h1>
 <table width="700px">
 <tr><td>
@@ -13,5 +9,4 @@
 <font color="grey"><i>&copy;<?php echo date("Y");?> Nicholas Andre </i></font>
 </tr></td>
 </table>
-</body>
-</html>
+<?php include('./tail.inc.php'); ?>

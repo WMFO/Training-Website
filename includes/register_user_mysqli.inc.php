@@ -22,7 +22,7 @@ if (!empty($email)) {
   }
 }
 if(strstr($fname, ';') || strstr($lname, ';')) {
-  $errors[] = "Sorry Ben, that function is not permitted.";
+  $errors[] = "Silly Tyler, Trix are for kids!";
 }
 if (!$errors) {
   // include the connection file

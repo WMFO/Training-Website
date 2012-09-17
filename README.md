@@ -14,6 +14,9 @@ A working test demonstration of the current/future code can be found at http://p
 Changelog
 =========
 
+9/16/12 -- V 1.50  
+Wrapped in CSS to make it look pretty.  
+
 9/12/12 -- V 1.15  
 User Modification is now possible from user page in global admin or from individual user pages.  
 

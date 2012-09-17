@@ -1,5 +1,6 @@
 <?php
 require_once("./includes/session_timeout.inc.php");
+include('./includes/logout.inc.php');
 if($_SESSION['role'] != 'admin'){
    header('Location: index.php');
 }

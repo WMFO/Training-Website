@@ -1,4 +1,5 @@
 <?php
+include('./includes/logout.inc.php');
 require_once("./includes/session_timeout.inc.php");
 require("./includes/connection.inc.php");
 $redirect = "user.php";

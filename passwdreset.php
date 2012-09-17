@@ -1,4 +1,5 @@
 <?php
+inclue('./includes/logout.inc.php');
 require('./includes/connection.inc.php');
 $connw = dbConnect('write');
 $tsql = "DELETE FROM pass_reset WHERE CAST('" . date("Y-m_d H:i:s", TIME() - 3600) . "' AS DATETIME) > time";

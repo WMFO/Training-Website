@@ -1,4 +1,5 @@
-<?php include('./head.inc.php');?>
+<?php include('./includes/logout.inc.php');
+include('./head.inc.php');?>
 <h1>About the Training Education Management System</h1>
 <p>The WMFO Training Education Management System is a platform constructed by Nicholas Andre in the Summer of 2012 and first used during the Fall 2012 training at WMFO. The goals of the project were to consolidate the infrastructure of training to a central location, keeping track of registration and attendance in one place. Furthermore, a checklist of items is provided within the system to ensure that the training process maintains consistency from one trainer to another.</p>
 <p>Furthermore, the system is designed to be managed by personel with no knowledge of the underlying codebase. All administrative functions can be performed without access to the underlying architecture, providing a more stable and reusable platform.</p>

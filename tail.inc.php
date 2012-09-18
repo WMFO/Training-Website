@@ -25,6 +25,8 @@
 </div>
 <div id="footer">
 (c) <?php echo date("Y"); ?> Nicholas Andre. design by <a href="http://www.freecsstemplates.org/">fct</a>.
+<br />
+<a href="https://github.com/WMFO/Training-Website">code</a> freely licensed under the <a href="http://www.gnu.org/copyleft/gpl.html">gpl</a>
 </div>
 </body>
 </html>

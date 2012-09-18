@@ -8,14 +8,20 @@ if (!empty($email)) {
 }
 
 if (!$errors) {
-  $things = array("fname", "lname", "email", "role", "showday", "showtime", "showpm", "showduration", "phone", "showname");
+  $things = array("fname", "lname", "email", "role", "showday", "showtime", "showpm", "showduration", "phone", "showname", "showchoice");
   foreach ($things as $item) {
     $$item = $_POST[$item];
   }
   if ($role == "admin") {
     die("You dunderfuck");
   }
-  // include the connection file
+  if($_SESSION['role'] == "admin") {
+  $vsql = 'UPDATE users SET showchoice=? WHERE user_id = ?';
+  $stmt = $connw->stmt_init();
+  $stmt = $connw->prepare($vsql);
+  $stmt->bind_param('ii', $showchoice, $user);
+  $stmt->execute();
+  }
   $sql = 'UPDATE users SET fname=?, lname=?, email=?, role=?, showday=?, showtime=?, showpm=?, showduration=?, phone=?, showname=? WHERE user_id = ?';
   $stmt = $connw->stmt_init();
   $stmt = $connw->prepare($sql);
@@ -26,11 +32,11 @@ if (!$errors) {
       $showday, $showtime, $showpm,
       $showduration, $phone, $showname, $user);
     $stmt->execute();
-    if ($stmt->affected_rows == 1) {
+    if (!$stmt->error) {
       $fqdn = 'Location: ' . $redirect . "?message=" . $fname;
       header($fqdn);
     } else {
-      $errors[] = 'You don\'t appear to have made any changes...';
+      $errors[] = 'Something has died. You\'ll probably have to call nick.';
     }
   } else echo("Statement failed: " . "<br>");
 }

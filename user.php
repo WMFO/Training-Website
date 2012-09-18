@@ -30,9 +30,7 @@ include('./head.inc.php');
 <table border="2">
 <tr>
 <th>Mod/Delete</th>
-<th>Name</th>
-<th>Email</th>
-<th>Show Name</th>
+<th>Info</th>
 <th>Setup</th>
 </tr>
 <?php
@@ -41,9 +39,8 @@ while ($row = $result->fetch_assoc()){
 <tr>
 <td><a href="moduser.php?user=<?php echo $row['user_id'];?>">MOD</a> or
  <a href="deluser.php?user=<?php echo $row['user_id'];?>">DEL</a></td>
-<td><?php echo $row['fname'] . ' ' . $row['lname']; ?></td>
-<td><?php echo $row['email'];?></td>
-<td><?php echo $row['showname']; ?></td>
+<td><?php echo $row['fname'] . ' ' . $row['lname']; ?>
+<br /><?php echo $row['email'];?></td>
    <td>D<input type="radio" name="<?php echo $row['user_id'];?>" value="0"
 <?php if ($row['enabled'] == 0) {echo "checked";} ?>>
    E<input type="radio" name="<?php echo $row['user_id'];?>" value="1"

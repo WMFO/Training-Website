@@ -106,6 +106,24 @@ if (isset($errors) && !empty($errors)) {
     <input type="text" name="phone" id="phone" maxlength="14" <?php 
       echo 'value="' . $row['phone'] . '" ';?>> Optional. In case you forget to come to training.
   </p>
+<?php if($utype == "admin") { ?>
+<p>
+  <label for="showchoice">Show Assignment</label>
+  <select name="showchoice" id="showchoice">
+  <option value='0'>None</option>
+<?php 
+      $sql = "SELECT fname, showname, user_id, lname FROM users WHERE role = 'trainer'";
+$tshows = $connw->query($sql);
+while($tshow = $tshows->fetch_assoc()) { ?>
+  <option value='<?php echo $tshow['user_id'] . "'";
+  if ($tshow['user_id'] == $row['showchoice']) {
+    echo " selected";
+  }?>><?php echo $tshow['showname'] . '--' .  $tshow['fname'] . ' ' . $tshow['lname']; ?></option><?php
+} ?>
+
+  </select>
+</p>
+<?php } ?>
 </div>
 
     <div id="A" <?php if($trainchecked){ ?>

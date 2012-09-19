@@ -11,6 +11,11 @@ $sql = "SELECT * FROM checklist ORDER BY onum ASC";
 $result = $conn->query($sql);
 include('./head.inc.php');
 ?>
+<html>
+<head>
+<title="Checklis">
+</head>
+<body>
 <h1>Checklist Management</h1>
 <p>Here you will find a list of the checklist items. You may freely add, remove, rearrange, etc.</p>
 <p>The order number is sorted ascending, so to change the order simply change the listed numbers and then hit update below. Modification and delete links are to the right of each item, while the add new item link is at the bottom. Enjoy!</p>

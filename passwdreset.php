@@ -56,10 +56,10 @@ if(isset($_POST['passwd']) && $keyok) {
   $conf_pwd = $_POST['conf_pwd'];
   require_once('./classes/Ps2/CheckPassword.php');
   $errors = array();
-  $checkPwd = new Ps2_CheckPassword($pwd, 6);
+  $checkPwd = new Ps2_CheckPassword($pwd, 8);
   //$checkPwd->requireMixedCase();
   //$checkPwd->requireNumbers(2);
-  //$checkPwd->requireSymbols();
+  //$checkPwd->requireSymbols(4);
   $passwordOK = $checkPwd->check();
   if (!$passwordOK) {
     $errors = array_merge($errors, $checkPwd->getErrors());
@@ -67,7 +67,7 @@ if(isset($_POST['passwd']) && $keyok) {
   if ($pwd != $conf_pwd) {
     $errors[] = "Your passwords don't match.";
   }
-  if (!$error) {
+  if (!$errors) {
     //$hash = sha1($pwd . $salt);
     require('./includes/PasswordHash.php');
     $megahasher = new PasswordHash(8,FALSE);
@@ -83,7 +83,7 @@ if(isset($_POST['passwd']) && $keyok) {
       $connw->query($sql);
       Header("Location: login.php?reset=yup");
     } else {
-      $error[] = "Something has done fucked up. Call Nick.";
+      $errors[] = "Something has done fucked up. Call Nick.";
     }
   }
 } 

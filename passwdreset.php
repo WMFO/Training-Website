@@ -111,7 +111,7 @@ if ($keyok) {
 if(isset($errors)) {
   echo "<ul>";
   foreach($errors as $message) {?>
-      <li><?php echo $message;?></li>
+      <li><font color="red"><?php echo $message;?></font></li>
 <?php }
 echo "</ul>";
 echo "<br />";

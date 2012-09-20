@@ -108,9 +108,9 @@ if ($keyok) {
 <form name="passwdform" method="post" action="">
 <p>Please enter a new password for your account:</p>
 <?php
-if(isset($error)) {
+if(isset($errors)) {
   echo "<ul>";
-  foreach($error as $message) {?>
+  foreach($errors as $message) {?>
       <li><?php echo $message;?></li>
 <?php }
 echo "</ul>";

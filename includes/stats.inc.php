@@ -28,7 +28,7 @@ function showA(x)
 <h4>Statistics</h4>
 <p>This stats page provides basic information, including alerts about incomplete checklists and missing attendance.</p>
 <table border="2">
-<tr><td>Number 1 hour shows:</td>
+<tr><th>Number 1 hour shows:</th>
 <td><?php
 $show1hr = 0;
 $show2hr = 0;
@@ -41,15 +41,15 @@ while($row = $result->fetch_assoc()){
 }
 echo $show1hr;
 ?></td></tr>
-<tr><td>Number 2 hour shows:</td>
+<tr><th>Number 2 hour shows:</th>
 <td><?php echo $show2hr;?></td>
 </tr>
 <tr>
-<td>Max Capacity</td>
+<th>Max Capacity</th>
 <td><?php echo $setting['max1hour'] * $show1hr
 + $setting['max2hour'] * $show2hr;?></td>
 </tr>
-<tr><td>Enrolled Students</td>
+<tr><th>Enrolled Students</th>
 <td><?php
 $result->close();
 $sql = "SELECT user_id FROM users WHERE role = 'trainee'";
@@ -57,6 +57,12 @@ $result = $conn->query($sql);
 echo $result->num_rows;
 
 ?></td></tr>
+<tr><th>Registered Students</th>
+<td><?php
+$sql = "SELECT user_id FROM users WHERE role = 'trainee' and showchoice != 0";
+$result = $conn->query($sql);
+echo $result->num_rows;
+?></td><tr>
 </table>
 <p>
 <label for="simple">Simple Info</label>

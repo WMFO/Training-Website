@@ -7,7 +7,7 @@
 			<div class="date-list">
 				<ul class="list date-list">
 					<li class="first"><span class="date">Sep 20</span> - Registration Opens at Noon</li>
-					<li><span class="date">Sep 21 </span>- Registration Closes at 11:59:59</li>
+					<li><span class="date">Sep 21 </span>- Registration Closes at 11:59:59 PM</li>
 					<li><span class="date">Sep 24</span> - Training Begins </li>
 					<li><span class="date">Oct 7</span> - Training Ends </li>
 					<li class="last"><span class="date">Oct 10</span> - Show Forms Due </li>

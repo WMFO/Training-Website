@@ -90,7 +90,11 @@ if ($row['showduration'] == 1){
 } else {
   $avail= "you done fucked up";
 }
-echo $avail; ?></td>
+if($avail < 0) {
+  echo "0";
+} else {
+  echo $avail;
+}?></td>
       <td><?php
 if ($avail > 0) {
   echo '<input type="radio" name="showchoice" value="' . $row['user_id'] . '">';

@@ -30,7 +30,7 @@ if ($passok && ($enabled || $role == "admin")){
   header("Location: $redirect");
   exit;
 } elseif ($passok && $user_id != 0 && $enabled == "0"){
-  $error = 'Your account setup is successful. Please check back later.';
+  $error = 'Your account is disabled. If you have questions, contact the training coordinator.';
 } else {
   // if no match, prepare error message
   $error = 'Invalid username or password';

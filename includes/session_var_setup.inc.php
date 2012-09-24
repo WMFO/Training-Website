@@ -26,6 +26,11 @@ if (($currentTime > $setting['reg_open'] && $currentTime < $setting['reg_close']
 } else {
   $register = false;
 }
+if ($currentTime > $setting['reg_close']) {
+  $registration_done = true;
+} else {
+  $registration_done = false;
+}
 #    $setting['training_start'] = 2012-12-31; #$row['dvalue'];
 /*echo "<pre>";
 var_dump($setting);

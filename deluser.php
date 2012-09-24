@@ -38,7 +38,7 @@ $row = $user->fetch_assoc(); ?>
 </tr>
 </table>
 <p><input type="submit" name="confirm" value="Bomb Sadam"> or alternatively
-<a href="index.php">Get the Hell out of Here</a></p>
+<a href="user.php">Get the Hell out of Here</a></p>
 </form>
 </body>
 </html>

@@ -12,8 +12,8 @@ $timelimit = 10000;
 // get the current time
 $now = time();
 // where to redirect if rejected
-$redirect = 'login.php';
 $next = $_SERVER['PHP_SELF'];
+$redirect = "login.php?next={$next}";
 // if session variable not set, redirect to login page
 if (!isset($_SESSION['authenticated'])) {
   header("Location: $redirect");

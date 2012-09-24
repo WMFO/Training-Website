@@ -2,14 +2,14 @@
 require_once('connection.inc.php');
 $conn = dbConnect('read');
 // get the username's details from the database
-$sql = 'SELECT salt, pwd, enabled, user_id, role, showchoice, fname FROM users WHERE email = ?';
+$sql = 'SELECT salt, pwd, enabled, user_id, role, showchoice, fname, quizscore FROM users WHERE email = ?';
 // initialize and prepare statement
 $stmt = $conn->stmt_init();
 $stmt->prepare($sql);
 // bind the input parameter
 $stmt->bind_param('s', $email);
 // bind the result, using a new variable for the password
-$stmt->bind_result($salt, $storedPwd, $enabled, $user_id, $role, $showchoice, $fname);
+$stmt->bind_result($salt, $storedPwd, $enabled, $user_id, $role, $showchoice, $fname, $quizscore);
 $stmt->execute();
 $stmt->fetch();
 // encrypt the submitted password with the salt and compare with stored password
@@ -24,6 +24,7 @@ if ($passok && ($enabled || $role == "admin")){
   $_SESSION['showchoice'] = $showchoice;
   $_SESSION['enabled'] = $enabled;
   $_SESSION['fname'] = $fname;
+  $_SESSION['quizscore'] = $quizscore;
   // get the time the session started
   $_SESSION['start'] = time();
   session_regenerate_id();

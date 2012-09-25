@@ -32,7 +32,8 @@ Welcome,
 <?php if (!$registration_done && !$register) {?><p>Your registration and login is successful. Please log back in at the appropriate time to select your show.</p>
 <?php } else { ?>
 <p>The WMFO training portal.</p>
-<?php }
+<?php } 
+include('./includes/quiz_include.inc.php');
 include("./includes/show_selection.inc.php");
 }
 ?>

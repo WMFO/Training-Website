@@ -13,7 +13,7 @@ if (isset($_POST['drop'])){
 }
 //add please select a show condition
 if ($_SESSION['showchoice']){
-$sql = "SELECT fname, showname, showday, showduration, showtime, showpm, user_id FROM users WHERE user_id = " . $_SESSION['showchoice'];
+$sql = "SELECT fname, showname, showday, showduration, showtime, showpm, user_id, email FROM users WHERE user_id = " . $_SESSION['showchoice'];
 } else {
 $sql = "SELECT fname, showname, showday, showduration, showtime, showpm, user_id FROM users WHERE role = 'trainer' AND enabled = '1' ORDER BY showpm ASC, showtime ASC";
 }
@@ -30,7 +30,7 @@ if ($_SESSION['showchoice']) {
     <th>Time</th>
     <th>Show Length</th>
   </tr>
-      <?php while ($row = $result->fetch_assoc()) { ?>
+      <?php $row = $result->fetch_assoc() ?>
    <tr>
       <td><?php echo $row['fname']; ?></td>
       <td><?php echo $row['showname']; ?></td>
@@ -38,7 +38,6 @@ if ($_SESSION['showchoice']) {
       <td><?php echo $row['showtime'] . $row['showpm']; ?></td>
       <td><?php echo $row['showduration'] . ' hr(s)'; ?></td>
     </tr>
-    <?php } ?>
 </table>
 <?php if ($register) {?><p>Expect to receive a confirmation email with further details from your training DJ. You have reserved a spot in the above show. If you desire, you may drop your spot in search of another. However, your spot may be taken in you choose to drop your reservation.</p>
  <p> 
@@ -49,6 +48,7 @@ if ($_SESSION['showchoice']) {
 <?php } else {
   echo "<p><i>Add/drop is closed. If you need to change shows, contact the training coordinator.</i></p>";
 }?>
+    <p>Your trainer's email is: <?php echo $row['email']; ?></p>
 <p>
   <a href="https://wiki.wmfo.org/Training/New_DJ_Training_Checklist">New DJ Training Checklist</a>
 </p>
@@ -90,7 +90,11 @@ if ($row['showduration'] == 1){
 } else {
   $avail= "you done fucked up";
 }
-echo $avail; ?></td>
+if($avail < 0) {
+  echo "0";
+} else {
+  echo $avail;
+}?></td>
       <td><?php
 if ($avail > 0) {
   echo '<input type="radio" name="showchoice" value="' . $row['user_id'] . '">';
@@ -106,6 +110,7 @@ if ($avail > 0) {
  </form>
 <?php } else { ?>
 <p>Registration is not open yet. It is available between <?php echo strftime( "%c", $setting['reg_open']);?> until <?php echo strftime("%c", $setting['reg_close']);?>. For help, contact the training coordinator.</p>
+<p><i>The current server time is <?php echo strftime("%c" , time()); ?> </i></p>
 <?php
 }
 }

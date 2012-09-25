@@ -6,15 +6,20 @@ $mod = isset($_GET['item']);
 require_once("./includes/session_timeout.inc.php");
 require("./includes/connection.inc.php");
 $connw = dbConnect('write');
+if($_SESSION['role'] != 'admin'){
+   header('Location: index.php');
+}
 if(isset($_POST['update'])){
-  $item = addslashes($_POST['itemval']);
-  $onum = intval($_POST['onum']);
-  $weeknum = intval($_POST['weeknum']);
+  $description = addslashes($_POST['itemval']);
+  $qnum = intval($_POST['qnum']);
+  $input = intval($_POST['weeknum']);
+  $postname = $connw->real_escape_string($_POST['postname']);
   if ($mod) {
-    $sql = 'UPDATE checklist SET item = "' . $item . '", onum = ' . $onum 
+    $sql = 'UPDATE quiz_questions SET content = "' . $description . '", qnum = ' . $qnum 
       . ', weeknum = ' . $weeknum . " WHERE id = " . $_GET['item'];
   } else {
-    $sql = 'INSERT INTO checklist (item, onum, weeknum) VALUES ("' . $item 
+    $sql = 'INSERT INTO quiz_questions (content, input, postname, qnum,'
+    . 'answer, answer_type) VALUES ("' . $item 
       . '", ' . $onum . ", " . $weeknum . ")";
   }
   $test4 = $connw->query($sql);
@@ -22,18 +27,15 @@ if(isset($_POST['update'])){
   header('Location: checklist.php');
   }
 }
-if($_SESSION['role'] != 'admin'){
-   header('Location: index.php');
-}
 
 
 ?>
 <html>
 <head>
-<title="Modify Checklist Item">
+<title="Modify Quiz Item">
 </head>
 <body>
-<h1>Checklist Item </h1>
+<h1>Quiz Item </h1>
 <p>Use the form below to populate, then hit update when you're done.</p>
 <?php
 if ($mod) {

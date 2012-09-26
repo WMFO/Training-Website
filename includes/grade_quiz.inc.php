@@ -9,7 +9,9 @@ while ($row = $result->fetch_assoc()) {
   $stmt = $conn->prepare($sql);
   $stmt->bind_param('iis', $_SESSION['user_id'], $row['qnum'], $$row['post_name']);
   $stmt->execute();
-  if ($row['answer'] == $$row['post_name']) {
+  $correct = strtoupper($row['answer']);
+  $theirs = strtoupper($$row['post_name']);
+  if ($correct == $theirs) {
     $numcorrect++;
   }
 }

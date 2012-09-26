@@ -38,7 +38,7 @@ if(@$complete) {
 <li>You may only view/take this quiz once. Please do not reload or leave the page once you view the questions as you will not be allowed back into the system.</li>
 <li>The quiz is a fairly straight forward multiple choice/short answer format. You may use any resources to fill out the quiz, but please do it alone and don't cheat. This is to make sure you know the information or know where to find the necessary information.</li>
 <li>If you fail or fail to complete the quiz, you'll be required to come to a remedial training session. You will be contacted with details.</li>
-<li>Please take this quiz within 24 hours after your last training session. If you fail to fill this out within this reasonable window, you'll jeopardize your ability to get a show.</li>
+<li>Please take this quiz before the end of training date on the right sidebar. If you fail to fill this out within this reasonable window, you'll jeopardize your ability to get a show.</li>
 </ul>
 <p>Thanks! If you pass, please follow the instructions on the presented page. </p>
 <p><a href="quiz.php">I've read the information above and I'm ready to proceed.</a></p>

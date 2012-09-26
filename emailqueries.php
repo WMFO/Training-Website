@@ -10,7 +10,7 @@ case 2:
   $sql .= "role = 'trainer'";
   break;
 case 3:
-  $sql .= "role = 'trainee && showchoice = 0";
+  $sql .= "role = 'trainee' && showchoice = 0";
   break;
 case 4:
   $sql .= "role = 'trainee' && showchoice != 0";

@@ -18,7 +18,7 @@ if(@$complete) {
 <p>You're all set to schedule your show.<p>
 <p>You'll need to fill out show forms and place those under the General Manager's door before the date indicated at the right. These forms include:</p>
 <ol>
-<li><a href="./includes/dj_contract.pdf">DJ Contract</a></li>
+<li><a href="./includes/dj_agreement.pdf">DJ Contract</a></li>
 <li><a href="./includes/show_form.pdf">Show Forms</a></li>
 </ol>
 <p>Please use your legal name on show forms for help with station access.</p>

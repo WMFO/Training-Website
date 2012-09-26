@@ -13,7 +13,9 @@ Welcome,
 <?php echo $_SESSION['fname']; ?>
 !
 </p>
-
+<p>
+<a href="emailqueries.php">Run Email Queries</a>
+</p>
 <?php 
 include('./includes/stats.inc.php');} 
 if($_SESSION['role'] == "trainee"){

@@ -13,6 +13,10 @@ if(isset($_POST['globalreset']) && @$_POST['supersure'] == 3){
   $connw->query($sql);
   $sql = "DELETE FROM checklist_completion";
   $connw->query($sql);
+  $sql = "DELETE FROM quiz_answers";
+  $connw->query($sql);
+  $sql = "DELETE FROM quiz_views";
+  $connw->query($sql);
 }
 if (isset($_POST['activate'])){
   require("./includes/usernable.inc.php");

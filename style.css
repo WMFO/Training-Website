@@ -216,10 +216,10 @@ border-top: 0;
   overflow: hidden;
   margin: 0 0 35px 0;
 }
-td {
+#myTable td {
   padding: 5px;
 }
-th {
+td, th {
   padding: 2px;
 }
 

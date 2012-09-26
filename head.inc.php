@@ -30,6 +30,7 @@ Released   : 20120205
 <?php if(@$_SESSION['role'] == "admin"){?>
         <li><a href="user.php">Manage Users</a></li>
         <li><a href="checklist.php">Checklist</a></li>
+        <li><a href="quizmod.php">Quiz</a></li>
         <li><a href="settings.php">Settings</a></li>
 <?php } else { ?>        <li><a href="moduser.php">Edit Info</a></li>
 				<li><a href="passwdreset.php">Password Reset</a></li>

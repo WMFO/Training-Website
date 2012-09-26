@@ -29,7 +29,6 @@ CREATE TABLE `quiz_questions` (
   `input` text,
   `post_name` varchar(20) DEFAULT NULL,
   `answer` varchar(255) DEFAULT NULL,
-  `answer_type` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `qnum` (`qnum`)
 ) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
@@ -41,7 +40,7 @@ CREATE TABLE `quiz_questions` (
 
 LOCK TABLES `quiz_questions` WRITE;
 /*!40000 ALTER TABLE `quiz_questions` DISABLE KEYS */;
-INSERT INTO `quiz_questions` VALUES (1,1,'<p>What is 3 plus 3?</p>','<label for=\"three\">Answer:</label><input type=\"text\" name=\"three\" id=\"three\">','three','3','number');
+INSERT INTO `quiz_questions` VALUES (1,1,'<p>What is 3 plus 3?</p>','<label for=\"three\">Answer:</label><input type=\"text\" name=\"three\" id=\"three\">','three','3');
 /*!40000 ALTER TABLE `quiz_questions` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;

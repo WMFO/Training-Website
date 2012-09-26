@@ -26,8 +26,12 @@ if(@$complete) {
 <h1>Oh no!</h1>
 <p>Unfortunately, your score on the test was not good enough to pass! You'll have to attend a remedial training session. Expect an email from the training coordinator shortly.</p>
 <?php } 
+} elseif($numattends > 1 && isset($_GET['quizr'])) {
+ echo "<h3>Oops</h3><p>You appear to have screwed up and not followed instructions. Please contact training@wmfo.org.</p>"; 
 } elseif($numattends > 1) {?>
 <h3>Congratulations</h3>
+<table id="myTable" border="2">
+<tr><td>
   <p>Our records indicate that you have successfully completed our studio training process!<p>
 <p>Before you can proceed, you'll have to take a quiz. There are a few important guidelines to read before you take the quiz. Observe:</p>
 <ul>
@@ -38,5 +42,6 @@ if(@$complete) {
 </ul>
 <p>Thanks! If you pass, please follow the instructions on the presented page. </p>
 <p><a href="quiz.php">I've read the information above and I'm ready to proceed.</a></p>
+</td></tr></table>
 <?php } ?>
 

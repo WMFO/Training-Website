@@ -216,6 +216,12 @@ border-top: 0;
   overflow: hidden;
   margin: 0 0 35px 0;
 }
+td {
+  padding: 5px;
+}
+th {
+  padding: 2px;
+}
 
 #post2 {
   width: 280px;

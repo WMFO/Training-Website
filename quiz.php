@@ -34,7 +34,7 @@ include('./head.inc.php');
 <form method="post" action="" name="quizform">
 <?php
 while($row = $result->fetch_assoc()) { ?>
-<p>Question <?php echo $row['qnum'] ?>:</p>
+<h2>Question <?php echo $row['qnum'] ?>:</h2>
 <?php echo $row['content'];
 echo "<p>\n" . $row['input'] . "\n</p>";?>
 <?php } ?>

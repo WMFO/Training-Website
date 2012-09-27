@@ -17,6 +17,7 @@ $result = $conn->query($sql);
 <h1>Quiz Management</h1>
 <p>Here you will find a list of the quiz items. You may freely add, remove, rearrange, etc.</p>
 <p>The order number is sorted ascending, so to change the order simply change the listed numbers and then hit update below. If you wish to swap question numbers, please change one number high (eg 999) and then swap. Modification and delete links are to the right of each item, while the add new item link is at the bottom. Enjoy!</p>
+<p><a href="quiz_person.php">Reset People's Quiz View</a></p>
   <form method="post" action="" name="neh">
 <table border="2">
 <tr>

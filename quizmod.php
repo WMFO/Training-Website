@@ -3,8 +3,8 @@ include('./includes/logout.inc.php');
 require_once("./includes/session_timeout.inc.php");
 require("./includes/connection.inc.php");
 $conn=dbConnect('write');
-if (isset($_POST['reorder']) && $role == "admin") {
-  require("./includes/quizorder.inc.php");
+if ($role != "admin") {
+  header("Location: index.php");
 }
 $sql = "SELECT * FROM quiz_questions ORDER BY qnum ASC";
 $result = $conn->query($sql);

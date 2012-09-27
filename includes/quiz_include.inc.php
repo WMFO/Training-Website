@@ -16,7 +16,8 @@ if(@$complete) {
   if($percentage >= $setting['min_quiz_grade']) { ?>
 <h1>Congratulations!</h1>
 <p>You're all set to schedule your show.<p>
-<p>You'll need to fill out show forms and place those in the manilla envelope on the door next to Brown and Brew before <?php echo strftime( "%c", $setting['forms_due']);?>. These forms include:</p>
+<p>You'll need to fill out show forms and place those in the manilla envelope on the door next to Brown and Brew before <?php 
+echo strftime( "%A %b %e at %l:%M %P", $setting['forms_due']);?>. These forms include:</p>
 <ol>
 <li><a href="./includes/dj_agreement.pdf">DJ Contract</a></li>
 <li><a href="./includes/show_form.pdf">Show Forms</a></li>

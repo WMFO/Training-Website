@@ -34,8 +34,8 @@ Released   : 20120205
         <li><a href="settings.php">Settings</a></li>
 <?php } else { ?>        <li><a href="moduser.php">Edit Info</a></li>
 				<li><a href="passwdreset.php">Password Reset</a></li>
-<?php } ?>
 				<li><a href="about.php">About</a></li>
+<?php } ?>
 				<li class="last"><a href="?logout=yes">logout</a></li>
 			</ul>
 			<br class="clearfix" />

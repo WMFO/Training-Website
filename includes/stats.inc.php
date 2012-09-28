@@ -143,7 +143,7 @@ while ($student = $students->fetch_assoc()) {?>
 <td><?php echo $student['email']; ?></td>
 <td><?php 
 $problems = '';
-  for ($i = $showweek; $i > 0; $i--) {
+  for ($i = $showweek - 1; $i > 0; $i--) {
     if (!$student[$i . "_attend"]){
       $problems .= 'Missed Show ' . $i . ' ';
     }

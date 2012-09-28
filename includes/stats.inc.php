@@ -131,9 +131,13 @@ $result = $conn->query($sql);
 <tr>
 <th>Attendee</th>
 <th>Email</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
+<?php for ($i=1; $i < 4; $i++) {
+  if ($i == $showweek) {
+    echo "<th><font color="red">" . $i . "</font></th>\n";
+  } else {
+    echo "<th>" . $i . "</th>\n";
+  }
+?>
 </tr>
 <?php 
 $sql = "SELECT * FROM users JOIN attendance ON users.user_id = attendance.user_id 

@@ -131,7 +131,9 @@ $result = $conn->query($sql);
 <tr>
 <th>Attendee</th>
 <th>Email</th>
-<th>Missing Attendance?</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
 </tr>
 <?php 
 $sql = "SELECT * FROM users JOIN attendance ON users.user_id = attendance.user_id 
@@ -141,20 +143,17 @@ while ($student = $students->fetch_assoc()) {?>
 <tr>
 <td><?php echo $student['fname'] . ' ' . $student['lname']; ?></td>
 <td><?php echo $student['email']; ?></td>
-<td><?php 
+<?php 
 $problems = '';
-  for ($i = $showweek - 1; $i > 0; $i--) {
-    if (!$student[$i . "_attend"]){
-      $problems .= 'Missed Show ' . $i . ' ';
+  for ($i = 1; $i < 4; $i++) {
+    if ($student[$i . "_attend"]){
+      echo "<td>&#9745;</td>";
+    } else {
+      echo "<td>&#9746;</td>";
     }
   }
-if ($problems) {
-  echo $problems;
-} else {
-  echo "OK!";
-}
-?></td>
- </tr> 
+?>
+</tr> 
 <?php }
 ?>
 </table>

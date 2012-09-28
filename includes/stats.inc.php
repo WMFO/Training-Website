@@ -137,6 +137,7 @@ $result = $conn->query($sql);
   } else {
     echo "<th>" . $i . "</th>\n";
   }
+}
 ?>
 </tr>
 <?php 

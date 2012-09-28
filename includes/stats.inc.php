@@ -133,7 +133,7 @@ $result = $conn->query($sql);
 <th>Email</th>
 <?php for ($i=1; $i < 4; $i++) {
   if ($i == $showweek) {
-    echo "<th><font color="red">" . $i . "</font></th>\n";
+    echo "<th><font color='red'>" . $i . "</font></th>\n";
   } else {
     echo "<th>" . $i . "</th>\n";
   }

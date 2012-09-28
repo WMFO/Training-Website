@@ -24,9 +24,17 @@ if($_SESSION['quizscore'] >= 0) {
 }
 include('./head.inc.php');
 ?>
-<pre>
-<?php //var_dump($conn); ?>
-</pre>
+    <script type="text/javascript">
+        var changes = true;        
+        window.onbeforeunload = function() {
+          if(changes) {
+                return "If you leave the quiz without finishing you won't be allowed back in.";
+            }
+          else {
+            return null;
+          }
+        }
+    </script>
 
 
 <h1>Quiz</h1>
@@ -38,7 +46,7 @@ while($row = $result->fetch_assoc()) { ?>
 <?php echo $row['content'];
 echo "<p>\n" . $row['input'] . "\n</p>";?>
 <?php } ?>
-<input type="submit" name="submitquiz" value="Submit Answers">
+<input type="submit" onclick='changes=false;' name="submitquiz" value="Submit Answers">
 </form>
 <?php  
 include('./tail.inc.php');?>

@@ -152,9 +152,9 @@ while ($student = $students->fetch_assoc()) {?>
 $problems = '';
   for ($i = 1; $i < $showweek + 1; $i++) {
     if ($student[$i . "_attend"]){
-      echo "<td color="green">&#9745;</td>";
+     echo "<td color='green'&#9745;</td>";
     } else {
-      echo "<td color="red">&#9746;</td>";
+      echo "<td color='red'>&#9746;</td>";
     }
   }
 ?>

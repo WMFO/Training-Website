@@ -131,7 +131,7 @@ $result = $conn->query($sql);
 <tr>
 <th>Attendee</th>
 <th>Email</th>
-<?php for ($i=1; $i < 4; $i++) {
+<?php for ($i=1; $i < $showweek + 1; $i++) {
   if ($i == $showweek) {
     echo "<th><font color='red'>" . $i . "</font></th>\n";
   } else {
@@ -150,11 +150,11 @@ while ($student = $students->fetch_assoc()) {?>
 <td><?php echo $student['email']; ?></td>
 <?php 
 $problems = '';
-  for ($i = 1; $i < 4; $i++) {
+  for ($i = 1; $i < $showweek + 1; $i++) {
     if ($student[$i . "_attend"]){
-      echo "<td>&#9745;</td>";
+      echo "<td color="green">&#9745;</td>";
     } else {
-      echo "<td>&#9746;</td>";
+      echo "<td color="red">&#9746;</td>";
     }
   }
 ?>

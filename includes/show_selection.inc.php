@@ -57,7 +57,7 @@ if ($_SESSION['showchoice']) {
   $sql = "SELECT * FROM attendance WHERE user_id = " . $_SESSION['user_id'];
 $attr = $conn->query($sql);
 $attq = $attr->fetch_assoc();
-echo "<table>"
+echo "<table>";
 for ($i = 1; $i < $showweek + 1; $i++) {
   echo "<tr><td>Week " . $i . "</td></tr><td>";
   if (!$attq[$i . "_attend"]) {
@@ -65,7 +65,7 @@ for ($i = 1; $i < $showweek + 1; $i++) {
   } else {
     echo "No";
   }
-  echo "</td></tr>"
+  echo "</td></tr>";
 }
 echo "</table>";
 } else {

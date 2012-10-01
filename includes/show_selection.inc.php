@@ -59,7 +59,7 @@ $attr = $conn->query($sql);
 $attq = $attr->fetch_assoc();
 echo "<table>";
 for ($i = 1; $i < $showweek + 1; $i++) {
-  echo "<tr><td>Week " . $i . "</td></tr><td>";
+  echo "<tr><td>Week " . $i . "</td><td>";
   if (!$attq[$i . "_attend"]) {
     echo "Yes";
   } else {

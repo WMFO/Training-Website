@@ -54,10 +54,10 @@ if ($_SESSION['showchoice']) {
 </p>
 <p>Attendance:</p>
 <?php
-  $sql = "SELECT * FROM attendance WHERE user_id = " . $_SESSION['user_id'];
+$sql = "SELECT * FROM attendance WHERE user_id = " . $_SESSION['user_id'];
 $attr = $conn->query($sql);
 $attq = $attr->fetch_assoc();
-echo "<table>";
+echo "<table border='2'>";
 for ($i = 1; $i < $showweek + 1; $i++) {
   echo "<tr><td>Week " . $i . "</td><td>";
   if (!$attq[$i . "_attend"]) {

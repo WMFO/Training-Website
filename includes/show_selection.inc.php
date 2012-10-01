@@ -52,22 +52,22 @@ if ($_SESSION['showchoice']) {
 <p>
   <a href="https://wiki.wmfo.org/Training/New_DJ_Training_Checklist">New DJ Training Checklist</a>
 </p>
+<p>Attendance:</p>
 <?php
   $sql = "SELECT * FROM attendance WHERE user_id = " . $_SESSION['user_id'];
 $attr = $conn->query($sql);
 $attq = $attr->fetch_assoc();
-$problem = '';
-for ($i = $showweek - 1; $i > 0; $i--) {
+echo "<table>"
+for ($i = 1; $i < $showweek + 1; $i++) {
+  echo "<tr><td>Week " . $i . "</td></tr><td>";
   if (!$attq[$i . "_attend"]) {
-    $problem .= $i . ' ';
+    echo "Yes";
+  } else {
+    echo "No";
   }
+  echo "</td></tr>"
 }
-if ($problem) {
-  echo "You have missed week(s) " . $problem;
-  echo "<br/><i>If this is in error, contact the training coordinator</i>";
-} else {
-  echo "Attendance OK!";
-}
+echo "</table>";
 } else {
   if (isset($error)){
     foreach ($error as $problem){

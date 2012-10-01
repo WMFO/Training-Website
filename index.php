@@ -26,7 +26,7 @@ Welcome,
 <?php echo $_SESSION['fname']; ?>
 !
 </p>
-<?php if(1) {?>
+<?php if(0) {?>
 <table border="2" width="550px">
 <tr><td style="background-color: #FFCACA"><b>A Note:</b> We have a VERY heavy load of trainees this semester. You stand a much better chance of getting a good show (or any show at all if we have 70+ people request a show) if you get a show with 1 or 2 or 3 friends. Start thinking about this now so that when it's time to fill out show request forms you don't have to worry. Also, coming to volunteer days is highly recommended to get a higher ranking.</td></tr>
 </table><br />
@@ -35,6 +35,19 @@ Welcome,
 <?php } else { ?>
 <p>The WMFO training portal.</p>
 <?php } 
+$sql = "SELECT * FROM attendance WHERE user_id = " . $_SESSION['user_id'];
+$attr = $conn->query($sql);
+$attq = $attr->fetch_assoc();
+$problem = '';
+for ($i = $showweek; $i > 0; $i--) {
+  if (!$attq[$i . "_attend"]) {
+    $problem .= $i . ' ';
+  }
+}
+if ($problem) {
+  echo "You have missed week(s) " . $problem;
+  echo "<br/><i>If this is in error, contact the training coordinator</i>";
+}
 include('./includes/quiz_include.inc.php');
 include("./includes/show_selection.inc.php");
 }

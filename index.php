@@ -35,21 +35,6 @@ Welcome,
 <?php } else { ?>
 <p>The WMFO training portal.</p>
 <?php } 
-$sql = "SELECT * FROM attendance WHERE user_id = " . $_SESSION['user_id'];
-$attr = $conn->query($sql);
-$attq = $attr->fetch_assoc();
-$problem = '';
-for ($i = $showweek - 1; $i > 0; $i--) {
-  if (!$attq[$i . "_attend"]) {
-    $problem .= $i . ' ';
-  }
-}
-if ($problem) {
-  echo "You have missed week(s) " . $problem;
-  echo "<br/><i>If this is in error, contact the training coordinator</i>";
-} else {
-  echo "Attendance OK!";
-}
 include('./includes/quiz_include.inc.php');
 include("./includes/show_selection.inc.php");
 }

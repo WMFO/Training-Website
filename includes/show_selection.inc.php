@@ -13,9 +13,9 @@ if (isset($_POST['drop'])){
 }
 //add please select a show condition
 if ($_SESSION['showchoice']){
-$sql = "SELECT fname, showname, showday, showduration, showtime, showpm, user_id, email FROM users WHERE user_id = " . $_SESSION['showchoice'];
+  $sql = "SELECT fname, showname, showday, showduration, showtime, showpm, user_id, email FROM users WHERE user_id = " . $_SESSION['showchoice'];
 } else {
-$sql = "SELECT fname, showname, showday, showduration, showtime, showpm, user_id FROM users WHERE role = 'trainer' AND enabled = '1' ORDER BY showpm ASC, showtime ASC";
+  $sql = "SELECT fname, showname, showday, showduration, showtime, showpm, user_id FROM users WHERE role = 'trainer' AND enabled = '1' ORDER BY showpm ASC, showtime ASC";
 }
 $result = $conn->query($sql) or die($conn->error);
 $numRows = $result->num_rows;
@@ -52,14 +52,30 @@ if ($_SESSION['showchoice']) {
 <p>
   <a href="https://wiki.wmfo.org/Training/New_DJ_Training_Checklist">New DJ Training Checklist</a>
 </p>
-<?php } else {
-if (isset($error)){
-  foreach ($error as $problem){
-    echo '<p>' . $problem . '</p>';
+<?php
+  $sql = "SELECT * FROM attendance WHERE user_id = " . $_SESSION['user_id'];
+$attr = $conn->query($sql);
+$attq = $attr->fetch_assoc();
+$problem = '';
+for ($i = $showweek - 1; $i > 0; $i--) {
+  if (!$attq[$i . "_attend"]) {
+    $problem .= $i . ' ';
   }
 }
-if ($register) {
-echo '<p>A total of ' . $numRows . ' shows are hosting new DJs.</p>';
+if ($problem) {
+  echo "You have missed week(s) " . $problem;
+  echo "<br/><i>If this is in error, contact the training coordinator</i>";
+} else {
+  echo "Attendance OK!";
+}
+} else {
+  if (isset($error)){
+    foreach ($error as $problem){
+      echo '<p>' . $problem . '</p>';
+    }
+  }
+  if ($register) {
+    echo '<p>A total of ' . $numRows . ' shows are hosting new DJs.</p>';
 ?>
 <table border="2">
   <tr>
@@ -80,27 +96,27 @@ echo '<p>A total of ' . $numRows . ' shows are hosting new DJs.</p>';
       <td><?php echo $row['showtime'] . $row['showpm']; ?></td>
       <td><?php echo $row['showduration'] . ' hr(s)'; ?></td>
       <td><?php 
-$sql = "SELECT * FROM users WHERE showchoice = " . $row['user_id'];
-$result2 = $conn->query($sql);
-$enrolled = $result2->num_rows;
-if ($row['showduration'] == 1){
-  $avail=$setting['max1hour'] - $enrolled;
-} elseif ($row['showduration'] == 2){
-  $avail=$setting['max2hour'] - $enrolled;
-} else {
-  $avail= "you done fucked up";
-}
-if($avail < 0) {
-  echo "0";
-} else {
-  echo $avail;
-}?></td>
+    $sql = "SELECT * FROM users WHERE showchoice = " . $row['user_id'];
+    $result2 = $conn->query($sql);
+    $enrolled = $result2->num_rows;
+    if ($row['showduration'] == 1){
+      $avail=$setting['max1hour'] - $enrolled;
+    } elseif ($row['showduration'] == 2){
+      $avail=$setting['max2hour'] - $enrolled;
+    } else {
+      $avail= "you done fucked up";
+    }
+    if($avail < 0) {
+      echo "0";
+    } else {
+      echo $avail;
+    }?></td>
       <td><?php
-if ($avail > 0) {
-  echo '<input type="radio" name="showchoice" value="' . $row['user_id'] . '">';
-} else {
-  echo 'Full';
-}?></td>
+      if ($avail > 0) {
+        echo '<input type="radio" name="showchoice" value="' . $row['user_id'] . '">';
+      } else {
+        echo 'Full';
+      }?></td>
     </tr> 
 <?php } ?>
 </table>
@@ -120,11 +136,11 @@ if ($showweek > 0 && $showweek < 4 && $_SESSION['showchoice']) {
 <h2>Weekly Training Goals:</h2>
 <ul>
 <?php
-$sql = "SELECT * FROM checklist WHERE weeknum = " . $showweek;
-$sql .= " ORDER BY onum ASC";
-$result = $conn->query($sql);
+  $sql = "SELECT * FROM checklist WHERE weeknum = " . $showweek;
+  $sql .= " ORDER BY onum ASC";
+  $result = $conn->query($sql);
 
-while ($row = $result->fetch_assoc()){?>
+  while ($row = $result->fetch_assoc()){?>
   <li><?php echo $row['item']; ?></li>
 <?php } 
 echo "</ul>";

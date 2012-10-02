@@ -16,13 +16,37 @@ if(@$complete) {
   if($percentage >= $setting['min_quiz_grade']) { ?>
 <h1>Congratulations!</h1>
 <p>You're all set to schedule your show.<p>
+<h2>New DJ Instructions From the PD</h2>
+<p>
+Hello New DJs!</p>
+
+<p>Attached you will find the DJ agreement and show scheduling forms.  Every DJ needs to fill out a DJ Agreement form. You only need one show form per show (So a show with 3 DJs needs to submit one show form with 3 DJ agreements attached).</p>
+
+<p>Some important things to keep in mind:</p>
+
+<p>1)      When filling out the forms, please make sure you:<br>
+a.       Are using the most current form that has the unavailable times blanked out.  If you must use an old form, make sure you are looking at the current schedule when you fill it out.  If you only pick times where shows already are, you will get an email after scheduling asking you to pick from what’s left over.<br>
+b.      Fill out the forms correctly and completely.  That means circling the times you want (and circling the right amount) and writing them down correctly on the form.  For example, don’t circle 4-5 AM and then say you want 4-5 PM.  <br>
+c.   Staple all forms together.</p>
+<p>
+2)      Access List/ID Cards:<br>
+a.       For Students:  Immediately after scheduling, you will be added to the access list. Your student ID should get you into the station within a couple of days after that.<br>
+b.      For Community Volunteers and Alums:  You will also be added to the access list immediately after scheduling, but you must pick up your IDs from Public Safety on Boston Ave during business hours.  Those are Monday - Friday from 9 AM - 5 PM.  In addition, you must use your ID the day you get it on both the RFID reader on the door to Curtis Hall (even if it’s unlocked) and on the swipe readers.  If you don’t, you will probably lose access in 24 hours.<br>
+c.       For Everyone:  If you don’t use your ID on one of the types of readers for a month, your card will deactivate for that reader. So, even if the door to Curtis Hall is always unlocked, tap it every once in a while. You don’t want to go in that one day where the building is locked, there’s no one upstairs, and you have to walk to TUPD to get access to the building.</p>
+
 <p>You'll need to fill out show forms and place those in the manilla envelope on the door next to Brown and Brew before <?php 
-echo strftime( "%A %b %e at %l:%M %P", $setting['forms_due']);?>. These forms include:</p>
+echo strftime( "%A %b %e at %l:%M %P", $setting['forms_due']);?>.</p>
+<p>If you have any questions about scheduling, please email pd@wmfo.org.</p>
+
+<p>All the best,<br>
+Rebecca</p>
+</p>
 <ol>
 <li><a href="./includes/dj_agreement.pdf">DJ Contract</a></li>
 <li><a href="./includes/show_form.pdf">Show Forms</a></li>
 </ol>
-<p>Please use your legal name on show forms for help with station access.</p>
+<br>
+<p><i>For Reference:</i></p>
 <?php } else { ?>
 <h1>Oh no!</h1>
 <p>Unfortunately, your score on the test was not good enough to pass! You'll have to attend a remedial training session. Expect an email from the training coordinator shortly.</p>

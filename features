@@ -1,8 +1,11 @@
 - Display Genre of show
-- Allow more email queries
 - Allow disabling/deleting of users who didn't register
 - Email confirmation before use
 - upload PDF show forms
 - configuring of right sidebar
-- remedial training
-- online show forms
+- read over all text
+- fix attendance by admin
+- no access quiz if lack of attendance
+- quiz re-grading
+- quiz statistics
+select qnum, quiz_answers.answer, quiz_questions.answer, user_id_fk, fname, lname from quiz_questions join quiz_answers on qnum = qnum_fk join users on user_id = user_id_fk where quiz_answers.answer != quiz_questions.answer order by qnum asc;

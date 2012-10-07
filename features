@@ -8,4 +8,5 @@
 - no access quiz if lack of attendance
 - quiz re-grading
 - quiz statistics
+- instructions on tems for users instead of email
 select qnum, quiz_answers.answer, quiz_questions.answer, user_id_fk, fname, lname from quiz_questions join quiz_answers on qnum = qnum_fk join users on user_id = user_id_fk where quiz_answers.answer != quiz_questions.answer order by qnum asc;

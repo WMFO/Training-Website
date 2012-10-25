@@ -13,9 +13,9 @@ if (isset($_POST['drop'])){
 }
 //add please select a show condition
 if ($_SESSION['showchoice']){
-  $sql = "SELECT fname, showname, showday, showduration, showtime, showpm, user_id, email FROM users WHERE user_id = " . $_SESSION['showchoice'];
+  $sql = "SELECT fname, showname, showgenre, showday, showduration, showtime, showpm, user_id, email FROM users WHERE user_id = " . $_SESSION['showchoice'];
 } else {
-  $sql = "SELECT fname, showname, showday, showduration, showtime, showpm, user_id FROM users WHERE role = 'trainer' AND enabled = '1' ORDER BY showpm ASC, showtime ASC";
+  $sql = "SELECT fname, showname, showgenre, showday, showduration, showtime, showpm, user_id FROM users WHERE role = 'trainer' AND enabled = '1' ORDER BY showpm ASC, showtime ASC";
 }
 $result = $conn->query($sql) or die($conn->error);
 $numRows = $result->num_rows;
@@ -47,6 +47,7 @@ if ($_SESSION['showchoice']) {
  </p>
 <?php } else {
   echo "<p><i>Add/drop is closed. If you need to change shows, contact the training coordinator.</i></p>";
+  echo "\n<p>If you do not receive an email from your trainer, please contact them at the address below: ";
 }?>
     <p>Your trainer's email is: <?php echo $row['email']; ?></p>
 <p>
@@ -67,7 +68,8 @@ for ($i = 1; $i < $showweek + 1; $i++) {
   }
   echo "</td></tr>";
 }
-echo "</table>";
+echo "</table><br />";
+
 } else {
   if (isset($error)){
     foreach ($error as $problem){
@@ -91,7 +93,7 @@ echo "</table>";
   <form id="form1" method="post" action="">
     <tr>
       <td><?php echo $row['fname']; ?></td>
-      <td><?php echo $row['showname']; ?></td>
+      <td><?php echo $row['showname']; ?><i> (<?php echo $row['showgenre'];?>)</i></td>
       <td><?php echo $row['showday']; ?></td>
       <td><?php echo $row['showtime'] . $row['showpm']; ?></td>
       <td><?php echo $row['showduration'] . ' hr(s)'; ?></td>

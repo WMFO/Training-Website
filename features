@@ -1,7 +1,6 @@
-- Display Genre of show
-- Allow disabling/deleting of users who didn't register
+done- Display Genre of show
 - Email confirmation before use
-- upload PDF show forms
+done- upload PDF show forms
 - configuring of right sidebar
 - read over all text
 - fix attendance by admin
@@ -9,4 +8,11 @@
 - quiz re-grading
 - quiz statistics
 - instructions on tems for users instead of email
+- Allow disabling/deleting of users who didn't register
+- Display "registration has passed, you lose"
+
+
+
+
+
 select qnum, quiz_answers.answer, quiz_questions.answer, user_id_fk, fname, lname from quiz_questions join quiz_answers on qnum = qnum_fk join users on user_id = user_id_fk where quiz_answers.answer != quiz_questions.answer order by qnum asc;

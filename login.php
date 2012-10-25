@@ -61,7 +61,7 @@ if ($error) {
 </form>
 
 <?php if( $_SERVER['SERVER_NAME'] == "php.axfp.org") {
-  echo '<p><a href="register.php?key=3311656">Click here to Register</a></p>'; 
+  echo '<p><a href="register.php?key=3311646">Click here to Register</a></p>'; 
 } ?>
 <p><a href="passwdreset.php">Forgot Password?</a></p>
 <pre>

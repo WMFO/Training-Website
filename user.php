@@ -5,7 +5,7 @@ if($_SESSION['role'] != 'admin'){
    header('Location: index.php');
 }
 include("./includes/session_var_setup.inc.php");
-if(isset($_POST['globalreset']) && @$_POST['supersure'] == 3){
+if(isset($_POST['globalreset']) && strtoupper(@$_POST['supersure']) == "DELETE"){
   $sql = "DELETE FROM users WHERE role != 'admin'";
   $connw=dbConnect('write');
   $connw->query($sql);
@@ -27,9 +27,9 @@ include('./head.inc.php');
 
 ?>
 <h1>The Alimighty User Management Page</h1>
-<p>Below is a list of users. Users are active when they sign up (the key ensures that random ruffians do not wander into the system). You may disabled or delete a user, or you may select early registration to allow them to choose a show before the typical deadline.</p>
-<p><b>In order to set make-up show,</b> set all candidates to the "Make-up Show," as well as the trainer who will be teaching. Any trainers which are disabled will not show up in registration results, but obviously you should not lock anyone out before their show has completed.</p>
-<p>Once you have selected the DJ as a make-up lesson teacher, press the "boot" button to kick all DJs (who have completed their training) out of the list. But be careful, Nick will not fix your mistakes.</p>
+<p>Below is a list of users. Users are active when they sign up (the key ensures that random ruffians do not wander into the system). You may disable or delete a user, or you may select extended registration to allow them to choose a show before or after the typical deadline.</p>
+<p>Press modify to change user type, attributes, or registration status (if they're a trainee).</p>
+<p>Any trainer set to "ER" will see a "Make-up week" attendance column. Please set this if you are running a make up lesson.</p>
 <form name="usermanform" method="post" action="">
 <table border="2">
 <tr>
@@ -65,8 +65,8 @@ while ($row = $result->fetch_assoc()){
 <input type="checkbox" id="globalreset" name="globalreset">
 </p>
 <p>
-<label for="supersure">If I'm super sure I want to do this, I'll put a 3 in this box:</label>
-<input type="textarea" maxlength="1" name="supersure">
+<label for="supersure">If I'm super sure I want to do this, I'll type <b>delete</b> in this box:</label>
+<input type="textarea" maxlength="6" name="supersure" id="supersure">
 </p>
 <p>
 <input type="submit" value="Delete All Users" name="reset">

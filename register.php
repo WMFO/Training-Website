@@ -5,7 +5,7 @@ if($_SERVER["HTTPS"] != "on") {
         exit();
 }
 $expected = array('fname', 'lname', 'email', 'pwd', 'conf_pwd', 'role', 'showday', 'showtime', 'showpm', 'showduration',
-  'phone', 'showname');
+  'phone', 'showname', 'showgenre');
 // set required fields
 $required = array('fname', 'lname', 'email', 'pwd', 'conf_pwd', 'role');
 $errors = array();
@@ -131,6 +131,11 @@ if(!$trainchecked){ echo "checked";} ?>>
     <label for="showname">Show Name:</label>
     <input type="text" name="showname" id="showname" maxlength="50" <?php if ($errors || $missing){
       echo 'value="' . $showname . '" ';}?>> 
+  </p>
+  <p>
+    <label for="showgenre">Show Genre:</label>
+    <input type="text" name="showgenre" id="showgenre" maxlength="50" <?php if ($errors || $missing){
+      echo 'value="' . $showgenre . '" ';}?>> 
   </p>
                                 <label for="showday">Show day?
                 <?php if (isset($missing) && in_array('showday', $missing)) { ?>

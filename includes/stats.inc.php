@@ -2,6 +2,11 @@
 $completed_emails = '';
 $sql = "SELECT showduration FROM users WHERE role = 'trainer'";
 $result = $conn->query($sql);
+if (isset($_POST['update'])) {
+  if ($success) {
+    header("Location: index.php");
+  }
+}
 
 ?>
 <html>
@@ -66,15 +71,15 @@ echo $result->num_rows;
 </table>
 <p>
 <label for="simple">Simple Info</label>
-<input type="radio" onchange="showA(this)" name="selector" value="simple" checked>
+<input type="radio" onchange="showA(this)" name="selector" value="simple" <?php if(!isset($_GET['tomod'])){ echo "checked";}?>>
 <label for="detailed">Detailed Info</label>
-<input type="radio" onchange="hideA(this)" name="selector" value="detailed">
+<input type="radio" onchange="hideA(this)" name="selector" value="detailed" <?php if(@$_GET['tomod']){ echo "checked";}?>>
 <?php
 $result->close();
 $sql = "SELECT * FROM users JOIN attendance ON users.user_id = attendance.user_id WHERE role = 'trainee'";
 $students = $conn->query($sql);
 ?>
-<div id="A" style="display: block">
+  <div id="A" style="display: <?php if (@$_GET['tomod']) { echo 'none';} else{ echo 'block';}?>">
   <h2>Breakdown by Trainee</h2>
   <table border="2">
   <tr>
@@ -84,7 +89,7 @@ $students = $conn->query($sql);
   <th>Attendance</th>
   </tr>
 <?php
-  while($student = $students->fetch_assoc()){?>
+while($student = $students->fetch_assoc()){?>
 <tr>
 <td><?php echo $student['fname'] . ' ' . $student['lname']; ?></td>
 <td><?php echo $student['email']; ?></td>
@@ -93,13 +98,13 @@ $students = $conn->query($sql);
 } else {
   echo "yup: " . $student['showchoice'];
 }?></td>
-<td><?php 
-$numweeks = 0;
-  for ($i = $showweek; $i > 0; $i--) {
-    if ($student[$i . "_attend"]){
-      $numweeks++;
-    }
+  <td><?php 
+  $numweeks = 0;
+for ($i = $showweek; $i > 0; $i--) {
+  if ($student[$i . "_attend"]){
+    $numweeks++;
   }
+}
 if ($numweeks >= 2) {
   echo "Complete!";
   $completed_emails .= $student['email'] . ', ';
@@ -114,17 +119,20 @@ if ($numweeks >= 2) {
 
 <?php if($completed_emails){
   echo "<h4>Here are the emails of completed trainees:</h4>";
-    echo $completed_emails;
+  echo $completed_emails;
 } ?>
 </div>
 <?php
-$students->close();
+  $students->close();
 $sql = "SELECT * FROM users WHERE role = 'trainer'";
 $result = $conn->query($sql);
 ?>
-<div id="B" style="Display: none">
+<div id="B" style="Display: <?php if(@$_GET['tomod']) { echo 'block';} else { echo 'none';}?>">
 <h2>Detailed Show Info</h2>
-<?php while ($row = $result->fetch_assoc()) {?>
+<?php while ($row = $result->fetch_assoc()) {if (isset($_GET['tomod'])) {
+  if ($row['user_id'] != @$_GET['tomod']) {continue;}
+  else { $revise = true; }
+}?>
 <h3><?php echo $row['fname'] . ' ' . $row['lname'] . ' (' . $row['showname']
 . ')';?></h3>
 <table border="2">
@@ -133,7 +141,7 @@ $result = $conn->query($sql);
 <th>Email</th>
 <?php for ($i=1; $i < $showweek + 1; $i++) {
   if ($i == $showweek) {
-    echo "<th><font color='red'>" . $i . "</font></th>\n";
+    echo "<th><font color='red'>$i</font></th>\n";
   } else {
     echo "<th>" . $i . "</th>\n";
   }
@@ -141,8 +149,9 @@ $result = $conn->query($sql);
 ?>
 </tr>
 <?php 
+if (@$revise) {echo '<form name="revise" method="post" action="">'; }
 $sql = "SELECT * FROM users JOIN attendance ON users.user_id = attendance.user_id 
-  WHERE showchoice = " . $row['user_id'];
+WHERE showchoice = " . $row['user_id'];
 $students = $conn->query($sql);
 while ($student = $students->fetch_assoc()) {?>
 <tr>
@@ -150,10 +159,18 @@ while ($student = $students->fetch_assoc()) {?>
 <td><?php echo $student['email']; ?></td>
 <?php 
   for ($i = 1; $i < $showweek + 1; $i++) {
-    if ($student[$i . "_attend"]){
-     echo "<td bgcolor='green'&#9745;</td>";
+    if (@$revise) {
+      if (!$student[$i . "_attend"]){
+        echo '<td><input type="checkbox" name="' . $student['user_id'] . '[]" value="1"></td>';
+      } else {
+        echo '<td><input type="checkbox" name="' . $student['user_id'] . '[]" value="1" checked></td>';
+      }
     } else {
-      echo "<td bgcolor='red'>&#9746;</td>";
+      if ($student[$i . "_attend"]){
+        echo "<td bgcolor='green'>&#9745;</td>";
+      } else {
+        echo "<td bgcolor='red'>&#9746;</td>";
+      }
     }
   }
 ?>
@@ -161,8 +178,12 @@ while ($student = $students->fetch_assoc()) {?>
 <?php }
 ?>
 </table>
-<?php } ?>
+<?php 
+if (@$revise) {echo '<input type="submit" name="update" value="Update Attendance">'
+  . "\n" . '</form>'; }
+if(!isset($_GET['tomod'])) {?>
+<a href="?tomod=<?php echo $row['user_id']; ?>">Modify Attendance^</a>
+<?php } } ?>
 </div>
-<p><a href="index.php">Home</a></p>
 </body>
 </html>

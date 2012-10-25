@@ -38,15 +38,15 @@ if (!$errors) {
   // prepare SQL statement
   $megahasher = new PasswordHash(8,FALSE);
   $hash = $megahasher->HashPassword($pwd);
-  $sql = 'INSERT INTO users (fname, lname, email, salt, pwd, role, showday, showtime, showpm, showduration, phone, showname)
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
+  $sql = 'INSERT INTO users (fname, lname, email, salt, pwd, role, showday, showtime, showpm, showduration, phone, showname, showgenre)
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
   $stmt = $conn->stmt_init();
   $stmt = $conn->prepare($sql);
   if($stmt != false)
   {
     // bind parameters and insert the details into the database
-    $stmt->bind_param('sssisssissss', $fname, $lname, $email, $salt, $hash, $role, $showday, $showtime, $showpm,
-      $showduration, $phone, $showname);
+    $stmt->bind_param('sssisssisssss', $fname, $lname, $email, $salt, $hash, $role, $showday, $showtime, $showpm,
+      $showduration, $phone, $showname, $showgenre);
     $stmt->execute();
     if ($stmt->affected_rows == 1) {
       if ($role = "trainee"){
@@ -63,9 +63,9 @@ if (!$errors) {
       $success = "$fname, you have been successfully registered. You may now log in.";
       header($fqdn);
     } elseif ($stmt->errno == 1062) {
-      $errors[] = "$email already in system. If you have forgotten your password, beg nicholas.andre@tufts.edu to reset it.";
+      $errors[] = "$email already in system. If you have forgotten your password, please use the password reset page.";
     } else {
-      $errors[] = 'Sorry, somebody has done fucked up. Error code 3.14159' . $stmt->errno;
+      $errors[] = 'Sorry, please call Max Goldstein. Error code 3.14159' . $stmt->errno;
     }
   } else echo("Statement failed: " . "<br>");
 }

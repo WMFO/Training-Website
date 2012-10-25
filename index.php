@@ -15,6 +15,7 @@ Welcome,
 </p>
 <p>
 <a href="emailqueries.php">Run Email Queries</a>
+</p><p><a href="upload.php">Upload Files</a>
 </p>
 <?php 
 include('./includes/stats.inc.php');} 

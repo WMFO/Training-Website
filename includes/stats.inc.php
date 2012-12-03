@@ -1,12 +1,13 @@
 <?php
 $completed_emails = '';
 $sql = "SELECT showduration FROM users WHERE role = 'trainer'";
-$result = $conn->query($sql);
 if (isset($_POST['update'])) {
+  require('./includes/update_attendance.inc.php');
   if ($success) {
     header("Location: index.php");
   }
 }
+$result = $conn->query($sql);
 
 ?>
 <html>
@@ -161,9 +162,9 @@ while ($student = $students->fetch_assoc()) {?>
   for ($i = 1; $i < $showweek + 1; $i++) {
     if (@$revise) {
       if (!$student[$i . "_attend"]){
-        echo '<td><input type="checkbox" name="' . $student['user_id'] . '[]" value="1"></td>';
+        echo '<td><input type="checkbox" name="S' . $student['user_id'] . '[]" value="' . $i . '"></td>';
       } else {
-        echo '<td><input type="checkbox" name="' . $student['user_id'] . '[]" value="1" checked></td>';
+        echo '<td><input type="checkbox" name="S' . $student['user_id'] . '[]" value="' . $i . '" checked></td>';
       }
     } else {
       if ($student[$i . "_attend"]){
@@ -183,7 +184,6 @@ if (@$revise) {echo '<input type="submit" name="update" value="Update Attendance
   . "\n" . '</form>'; }
 if(!isset($_GET['tomod'])) {?>
 <a href="?tomod=<?php echo $row['user_id']; ?>">Modify Attendance^</a>
-<?php } } ?>
+<?php } }?>
 </div>
-</body>
-</html>
+

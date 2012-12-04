@@ -44,6 +44,22 @@ if ($row['type'] == "int"){
 </tr>
 <?php } ?>
 </table>
+<br />
+<h2>Text Editing</h2>
+<p>This area allows customization of the side bar. Please compare what appears at your right with the text inside. To modify, simply change the text. It is coded with basic HTML and CSS tags which you can research if you want. To make a new line, copy and paste an existing line. Pretty simple.</p>
+<table border="2">
+<?php
+  $sql = "SELECT * FROM cmstext";
+  $text = $connw->query($sql);
+  while ( $item = $text->fetch_assoc()) {
+?><tr>
+  <th><?php echo $item['name'];?></th>
+  <td><textarea name="<?php echo $item['name']; ?>" rows="8" cols="50"><?php
+    echo $item['body']; ?></textarea></td>
+</tr>
+<?php } ?>
+</table>
+
 <p><input type="submit" name="settingsubmit"></p>
 </form>
 <i><font color="grey">For a sanity check, the current time is <?php echo strftime("%c" , time()); ?></font></i>

@@ -11,7 +11,6 @@ if(@$_GET['tomod'] && $_SESSION['role'] == "admin") {
         $bool = false;
       }
       $sql2 = "UPDATE attendance SET " . $i . "_attend = " . ($bool ? 'true' : 'false') . ","  . $i . "_show = -1 WHERE user_id = " . $student['user_id'];
-      //mysqli_report(MYSQLI_REPORT_ERROR);
       $result = $connw->query($sql2);
     }
   }

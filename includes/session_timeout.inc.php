@@ -27,7 +27,7 @@ if (!isset($_SESSION['authenticated'])) {
   }
   // end session and redirect with query string
   session_destroy();
-  header("Location: {$redirect}?expired=yes&next={$next}");
+  header("Location: {$redirect}&expired=yes");
   exit;
 } else {
   // if it's got this far, it's OK, so update start time

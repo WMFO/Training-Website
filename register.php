@@ -29,10 +29,26 @@ while ($row = $settingQuery->fetch_assoc()) {
   }
 }
 
-if(@$_GET['key'] != $setting['regkey']) {
-  header("Location: login.php");
+if(@$_GET['key'] != $setting['regkey']) {  
+header("Location: login.php");
 }
 include('./head.inc.php');
+if (!isset($_GET['reg'])){
+?>
+<?php
+  //echo $_GET['key'];
+  //echo $setting['regkey'];
+  $sql = "SELECT * FROM cmstext WHERE name = 'DJRegPg'";
+  $text = $conn->query($sql);
+  $row = $text->fetch_assoc();
+  echo $row['body'];
+  $text->free();
+?>
+<p>When you are ready to continue, please click <a href="https://<?php echo $_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"]; ?>&reg=yes">here</a>.</p>
+
+
+<?php
+} else {
 ?>
 <script language="Javascript">
 function hideA(x)
@@ -230,4 +246,5 @@ if(!$trainchecked){ echo "checked";} ?>>
     <input name="register" type="submit" id="register" value="Register">
   </p>
 </form>
-<?php include('./tail.inc.php');?>
+<?php }
+include('./tail.inc.php');?>

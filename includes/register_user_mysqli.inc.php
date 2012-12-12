@@ -14,6 +14,9 @@ if (!$passwordOK) {
 if ($pwd != $conf_pwd) {
   $errors[] = "Your passwords don't match.";
 }
+if ($email != $conf_email) {
+  $errors[] = "Your email addresses do not match. Please ensure accuracy or else you won't receive proper updates.";
+}
 // validate the user's email
 if (!empty($email)) {
   $validemail = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);

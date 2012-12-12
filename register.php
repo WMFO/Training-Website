@@ -5,9 +5,9 @@ if($_SERVER["HTTPS"] != "on") {
         exit();
 }
 $expected = array('fname', 'lname', 'email', 'pwd', 'conf_pwd', 'role', 'showday', 'showtime', 'showpm', 'showduration',
-  'phone', 'showname', 'showgenre');
+  'phone', 'showname', 'showgenre', 'conf_email');
 // set required fields
-$required = array('fname', 'lname', 'email', 'pwd', 'conf_pwd', 'role');
+$required = array('fname', 'lname', 'email', 'pwd', 'conf_pwd', 'role', 'conf_email');
 $errors = array();
 $missing = array(); 
 $redirect = "login.php";
@@ -110,6 +110,11 @@ if (isset($success)) {
     <label for="email">Email:</label>
     <input type="text" name="email" id="email" maxlength="50" <?php if ($errors || $missing){
       echo 'value="' . $email . '" ';}?>required>
+  </p>
+  <p>
+    <label for="conf_email">Confirm Email:</label>
+    <input type="text" name="conf_email" id="conf_email" maxlength="50" <?php if ($errors || $missing){
+      echo 'value="' . $conf_email . '" ';}?>required><i> Please Ensure Accuracy</i>
   </p>
   <p>
     <label for="pwd">Password:</label>

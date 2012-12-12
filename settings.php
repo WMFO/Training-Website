@@ -56,6 +56,7 @@ if ($row['type'] == "int"){
   <th><?php echo $item['name'];?></th>
   <td><textarea name="<?php echo $item['name']; ?>" rows="8" cols="50"><?php
     echo $item['body']; ?></textarea></td>
+  <td><?php echo $item['description'];?></td>
 </tr>
 <?php } ?>
 </table>

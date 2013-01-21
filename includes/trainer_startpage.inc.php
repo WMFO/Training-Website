@@ -9,6 +9,9 @@ if (isset($_POST['reset'])){
 #require_once('connection.inc.php');
 #$conn = dbConnect('read');
 // get the username's details from the database
+  $sql = "SELECT * FROM cmstext WHERE name = 'trainerAnn'";
+  $announce = $conn->query($sql);  $row = $announce->fetch_assoc();
+    echo $row['body'];
 $sql = "SELECT fname, lname, email, phone, user_id FROM users WHERE showchoice = " . $_SESSION['user_id'];
 $result = $conn->query($sql) or die($conn->error);
 $numRows = $result->num_rows;

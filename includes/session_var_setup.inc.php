@@ -31,6 +31,13 @@ if ($currentTime > $setting['reg_close']) {
 } else {
   $registration_done = false;
 }
+$sql = "SELECT role, showchoice, fname, quizscore FROM users WHERE user_id = " . $_SESSION['user_id'];
+$updateQuery = $conn->query($sql);
+$info = $updateQuery->fetch_assoc();
+$_SESSION['role'] = $info['role'];
+$_SESSION['showchoice'] = $info['showchoice'];
+$_SESSION['enabled'] = $info['enabled'];
+$_SESSION['quizscore'] = $info['quizscore'];
 #    $setting['training_start'] = 2012-12-31; #$row['dvalue'];
 /*echo "<pre>";
 var_dump($setting);

@@ -31,7 +31,7 @@ if ($currentTime > $setting['reg_close']) {
 } else {
   $registration_done = false;
 }
-$sql = "SELECT role, showchoice, fname, quizscore FROM users WHERE user_id = " . $_SESSION['user_id'];
+$sql = "SELECT role, enabled, showchoice, fname, quizscore FROM users WHERE user_id = " . $_SESSION['user_id'];
 $updateQuery = $conn->query($sql);
 $info = $updateQuery->fetch_assoc();
 $_SESSION['role'] = $info['role'];

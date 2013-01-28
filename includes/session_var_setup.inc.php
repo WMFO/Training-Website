@@ -3,6 +3,13 @@ date_default_timezone_set('America/New_York');
 $settingQuery = array();
 require_once('connection.inc.php');
 $conn = dbConnect('read');
+$sql = "SELECT role, enabled, showchoice, fname, quizscore FROM users WHERE user_id = " . $_SESSION['user_id'];
+$updateQuery = $conn->query($sql);
+$info = $updateQuery->fetch_assoc();
+$_SESSION['role'] = $info['role'];
+$_SESSION['showchoice'] = $info['showchoice'];
+$_SESSION['enabled'] = $info['enabled'];
+$_SESSION['quizscore'] = $info['quizscore'];
 $sql="SELECT * FROM settings";
 $settingQuery = $conn->query($sql);
 while ($row = $settingQuery->fetch_assoc()) { 
@@ -31,13 +38,6 @@ if ($currentTime > $setting['reg_close']) {
 } else {
   $registration_done = false;
 }
-$sql = "SELECT role, enabled, showchoice, fname, quizscore FROM users WHERE user_id = " . $_SESSION['user_id'];
-$updateQuery = $conn->query($sql);
-$info = $updateQuery->fetch_assoc();
-$_SESSION['role'] = $info['role'];
-$_SESSION['showchoice'] = $info['showchoice'];
-$_SESSION['enabled'] = $info['enabled'];
-$_SESSION['quizscore'] = $info['quizscore'];
 #    $setting['training_start'] = 2012-12-31; #$row['dvalue'];
 /*echo "<pre>";
 var_dump($setting);

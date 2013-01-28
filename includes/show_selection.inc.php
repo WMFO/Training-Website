@@ -2,13 +2,13 @@
 #require_once('connection.inc.php');
 #$conn = dbConnect('read');
 // get the username's details from the database
-if (isset($_POST['register']) && isset($_POST['showchoice'])){
+if (isset($_POST['register']) && isset($_POST['showchoice']) && $register){
   require('select_show.inc.php');
 } elseif (isset($_POST['register']) && !isset($_POST['showchoise'])){
   $error = array();
   $error[] = "Please select a show.";
 }
-if (isset($_POST['drop'])){
+if (isset($_POST['drop']) && $register){
   require('./includes/drop_show.inc.php');
 }
 //add please select a show condition
@@ -126,7 +126,9 @@ echo "</table><br />";
     <input name="register" type="submit" id="register" value="Register">
  </p>
  </form>
-<?php } else { ?>
+<?php } else if($registration_done){ ?>
+<p>Oops, looks like you missed registration. Try again next semester!</p>
+<?php } else {?>
 <p>Registration is not open yet. It is available between <?php echo strftime( "%c", $setting['reg_open']);?> until <?php echo strftime("%c", $setting['reg_close']);?>. For help, contact the training coordinator.</p>
 <p><i>The current server time is <?php echo strftime("%c" , time()); ?> </i></p>
 <?php

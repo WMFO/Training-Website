@@ -28,11 +28,11 @@ while ($row = $settingQuery->fetch_assoc()) {
     $setting[$row['name']] = strtotime($row['dvalue']);
   }
 }
-
-if(@$_GET['key'] != $setting['regkey']) {  
-header("Location: login.php");
-}
 include('./head.inc.php');
+if(@$_GET['key'] != $setting['regkey']) {  
+  echo "<h1>Your Registration Link Has Expired</h1>";
+  echo "Please contact the training coordinator if you still need to register.";
+} else {
 if (!isset($_GET['reg'])){
 ?>
 <?php
@@ -251,5 +251,5 @@ if(!$trainchecked){ echo "checked";} ?>>
     <input name="register" type="submit" id="register" value="Register">
   </p>
 </form>
-<?php }
+<?php }}
 include('./tail.inc.php');?>

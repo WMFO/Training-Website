@@ -17,6 +17,8 @@ if(isset($_POST['globalreset']) && strtoupper(@$_POST['supersure']) == "DELETE")
   $connw->query($sql);
   $sql = "DELETE FROM quiz_views";
   $connw->query($sql);
+  $sql = "ALTER TABLE users AUTO_INCREMENT = 2";
+  $connw->query($sql);
 }
 if (isset($_POST['activate'])){
   require("./includes/usernable.inc.php");

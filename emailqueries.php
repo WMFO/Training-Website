@@ -44,7 +44,7 @@ for($i = 0; $i < sizeof($things); $i++) {
 <?php
   if (@$result){
     while($row = $result->fetch_assoc()) {
-      echo $row['email'] . "\n";
+      echo $row['email'] . "\n<br />";
     }
   }
 ?><p><a href="index.php">Home</a></p>

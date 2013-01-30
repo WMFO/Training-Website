@@ -31,7 +31,7 @@ while ($row = $settingQuery->fetch_assoc()) {
 include('./head.inc.php');
 if(@$_GET['key'] != $setting['regkey']) {  
   echo "<h1>Your Registration Link Has Expired</h1>";
-  echo "Please contact the training coordinator if you still need to register.";
+  echo "<br />This probably means that you're late to the registration process. Contact the training coordinator if you believe there's been an error.";
 } else {
 if (!isset($_GET['reg'])){
 ?>

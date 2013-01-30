@@ -49,7 +49,7 @@ if ($error) {
 <form id="form1" method="post" action="">
     <p>
         <label for="email">Email:</label>
-        <input type="text" name="email" id="email">
+        <input type="text" name="email" id="email" autofocus />
     </p>
     <p>
         <label for="pwd">Password:</label>

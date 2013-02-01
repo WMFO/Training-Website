@@ -50,25 +50,6 @@ if (!isset($_GET['reg'])){
 <?php
 } else {
 ?>
-<script language="Javascript">
-function hideA(x)
-{
-  if (x.checked)
-  {
-    document.getElementById("A").style.display="none";
-    document.getElementById("B").style.display="block";
-  }
-}
-
-function showA(x)
-{
-  if (x.checked)
-  {
-    document.getElementById("A").style.display="block";
-    document.getElementById("B").style.display="none";
-  }
-}
-</script>
 <style>
 label {
         display:inline-block;
@@ -80,7 +61,13 @@ input[type="submit"] {
         margin-left:122px;
 }
 </style>
-<h1>Register user</h1>
+<?php if ($_GET['role'] != "trainer") {
+  echo "<h1>Register Trainee</h1>";
+  echo "<i>Use this page to register to be trained at WMFO for DJing. If you are looking to train people, you've followed the wrong link.</i>";
+} else {
+  echo "<h1>Register Trainer</h1>";
+  echo "<i>Use this to register your WMFO radio show to train DJs this semester.</i>";
+} ?>
 <br />
 <?php
 if (isset($success)) {
@@ -124,30 +111,23 @@ if (isset($success)) {
     <label for="conf_pwd">Confirm password:</label>
     <input type="password" name="conf_pwd" id="conf_pwd" required>
   </p>
-    <p>
-        <label for="trainee">Trainee</label>
-        <input type="radio" onchange="hideA(this)" name="role" id="trainee" value="trainee"
-<?php $trainchecked = (($errors || $missing) && $role == 'trainer') && isset($_POST);
-if(!$trainchecked){ echo "checked";} ?>>
-        <br />
-        <label for="trainer">Trainer</label>
-        <input type="radio" onchange="showA(this)" name="role" id="trainer" value="trainer" <?php if($trainchecked){ echo 'checked'; }?>>
-    </p>
-
-    <div id="B" <?php if(!$trainchecked){ ?>
-        style="display: block;"> <?php } else { ?>
-        style="display: none;"><?php } ?>
+<?php if (@$_GET['role'] != "trainer") {?>
+<input type="hidden" name="role" value="trainee">
+<!--If you change this your account won't work...-->
   <p>
     <label for="phone">Phone Number:</label>
     <input type="text" name="phone" id="phone" maxlength="14" <?php if ($errors || $missing){
       echo 'value="' . $phone . '" ';}?>> Optional. In case you forget to come to training.
   </p>
-</div>
 
-    <div id="A" <?php if($trainchecked){ ?>
-        style="display: block;"> <?php } else { ?>
-        style="display: none;"><?php } ?>
- <p>
+<?php } else { ?>
+<input type="hidden" name="role" value="trainer">
+<!--If you change this your account won't work...-->
+  <p>
+    <label for="phone">Phone Number:</label>
+    <input type="text" name="phone" id="phone" maxlength="14" <?php if ($errors || $missing){
+      echo 'value="' . $phone . '" ';}?>> <i>Not Required</i>
+  </p>
   <p>
     <label for="showname">Show Name:</label>
     <input type="text" name="showname" id="showname" maxlength="50" <?php if ($errors || $missing){
@@ -245,8 +225,7 @@ if(!$trainchecked){ echo "checked";} ?>>
             </select>
             hour(s)
         </p>
-    </div>
-
+<?php } ?>
   <p>
     <input name="register" type="submit" id="register" value="Register">
   </p>

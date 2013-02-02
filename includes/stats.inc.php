@@ -136,6 +136,7 @@ $result = $conn->query($sql);
 }?>
 <h3><?php echo $row['fname'] . ' ' . $row['lname'] . ' (' . $row['showname']
 . ')';?></h3>
+<?php echo $row['showday'] . ' ' . $row['showtime'] . $row['showpm']; ?><br />
 <table border="2">
 <tr>
 <th>Attendee</th>

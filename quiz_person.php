@@ -47,6 +47,7 @@ $result = $conn->query($sql);
 <td><?php echo $question['answer']; ?></td>
 </tr>
 <?php } ?>
+</table>
 <a href="quiz.php">Back to Quiz Page</a>
 <?php } else {?>
 <h1>Quiz Management</h1>
@@ -61,7 +62,7 @@ $result = $conn->query($sql);
 </tr>
 <?php while($row = $result->fetch_assoc()) { ?>
 <tr>
-<td><a href="?<?php echo $row['user_id']; ?>"><?php echo $row['fname'] . ' ' . $row['lname']; ?></a></td>
+<td><a href="?view=<?php echo $row['user_id']; ?>"><?php echo $row['fname'] . ' ' . $row['lname']; ?></a></td>
 <td><?php echo $row['email'];?></td>
 <td><?php echo $row['quizscore'];?></td>
 <td>R<input type="checkbox" name="delview[]" value="<?php echo $row['user_id']; ?>"></td>

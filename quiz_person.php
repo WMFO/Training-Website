@@ -61,7 +61,7 @@ $result = $conn->query($sql);
 </tr>
 <?php while($row = $result->fetch_assoc()) { ?>
 <tr>
-<td><?php echo $row['fname'] . ' ' . $row['lname']; ?></td>
+<td><a href="?<?php echo $row['user_id']; ?>"><?php echo $row['fname'] . ' ' . $row['lname']; ?></a></td>
 <td><?php echo $row['email'];?></td>
 <td><?php echo $row['quizscore'];?></td>
 <td>R<input type="checkbox" name="delview[]" value="<?php echo $row['user_id']; ?>"></td>

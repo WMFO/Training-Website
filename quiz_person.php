@@ -35,6 +35,7 @@ $result = $conn->query($sql);
 <tr><th>Question #</th>
 <th>Answer</th>
 <th>Correct</th>
+<th>Color</th>
 <?php
   $sql = "SELECT answer FROM quiz_answers WHERE user_id_fk = " . $_GET['view'] . " ORDER BY qnum_fk ASC";
   $person_answers = $conn->query($sql);
@@ -51,6 +52,11 @@ $result = $conn->query($sql);
 <td><?php echo $question['qnum']; ?></td>
 <td><?php echo $answer['answer']; ?></td>
 <td><?php echo $question['answer']; ?></td>
+<td <?php if ($question['answer'] != $answer['answer']) {
+  echo 'bgcolor="red"';
+} else {
+  echo 'bgcolor="green"';
+}?>></td>
 </tr>
 <?php }} ?>
 </table>

@@ -30,25 +30,31 @@ $result = $conn->query($sql);
 ?>
 <h1>View Answers for User</h1>
 <p>The correct answer field is only valid as long as the answers have not been changed from the quiz page.</p>
+<p>To view accurately, open up the quiz question edit screen in another tab and flip back and fourth to view particular questions</p>
 <table border="2">
 <tr><th>Question #</th>
 <th>Answer</th>
 <th>Correct</th>
 <?php
-  $sql = "SELECT * FROM quiz_answers WHERE user_id_fk = " . $conn->real_escape_string($_GET['view']);
-  $persons_answers = $conn->query($sql);
-  $sql = "SELECT * FROM quiz_questions";
+  $sql = "SELECT answer FROM quiz_answers WHERE user_id_fk = " . $_GET['view'] . " ORDER BY qnum_fk ASC";
+  $person_answers = $conn->query($sql);
+  $sql = "SELECT * FROM quiz_questions ORDER BY qnum ASC";
   $questions = $conn->query($sql);
-  while ($answer = $persons_answers->fetch_assoc() && $question = $questions->fetch_assoc()) {
+  if ($person_answers->num_rows != $questions->num_rows) {?>
+</table>
+<p>Answers have not been received. Either the quiz is in progress or was exited early or graded improperly. Reset quiz view to allow second try of quiz.</p>
+<?php } else {
+  while ($answer = $person_answers->fetch_assoc()) {
+    $question = $questions->fetch_assoc();
 ?>
 <tr>
 <td><?php echo $question['qnum']; ?></td>
 <td><?php echo $answer['answer']; ?></td>
 <td><?php echo $question['answer']; ?></td>
 </tr>
-<?php } ?>
+<?php }} ?>
 </table>
-<a href="quiz.php">Back to Quiz Page</a>
+<a href="quiz_person.php">Back to Quiz Page</a><br />
 <?php } else {?>
 <h1>Quiz Management</h1>
   <form method="post" action="" name="meh">

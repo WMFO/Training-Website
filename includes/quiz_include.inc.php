@@ -62,7 +62,7 @@ Your WMFO Programming Director!</p>
 <ul>
 <li>You may only view/take this quiz once. Please do not reload or leave the page once you view the questions as you will not be allowed back into the system.</li>
 <li>The quiz is a fairly straight forward multiple choice/short answer format. You may use any resources to fill out the quiz, but please do it alone and don't cheat. This is to make sure you know the information or know where to find the necessary information.</li>
-<li>If you fail or fail to complete the quiz, you'll be required to come to a remedial training session. You will be contacted with details.</li>
+<li>If you fail the quiz, you'll be required to come to a remedial training session. You will be contacted with details.</li>
 <li>Please take this quiz before the required date on the right sidebar. If you fail to do this, you will not receive credit for training.</li>
 </ul>
 <p>Thanks! If you pass, please follow the instructions on the presented page. </p>

@@ -16,6 +16,4 @@ Welcome,
 <p>The WMFO training portal.</p>
 <?php } 
 include('./includes/quiz_include.inc.php');
-if (!@$complete) {
-  include("./includes/show_selection.inc.php");
-}
+include("./includes/show_selection.inc.php");

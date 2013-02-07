@@ -25,7 +25,7 @@ Hello New DJs!</p>
 <p>Some important things to keep in mind:</p>
 
 <p>1)      When filling out the forms, please make sure you:<br>
-a.       Are using the most current form that has the unavailable times blanked out.  If you must use an old form, make sure you are looking at the current schedule when you fill it out.  If you only pick times where shows already are, you will get an email after scheduling asking you to pick from what’s left over.<br>
+a.      Use the forms available on this website (found below).<br>
 b.      Fill out the forms correctly and completely.  That means circling the times you want (and circling the right amount) and writing them down correctly on the form.  For example, don’t circle 4-5 AM and then say you want 4-5 PM.  <br>
 c.   Staple all forms together.</p>
 <p>

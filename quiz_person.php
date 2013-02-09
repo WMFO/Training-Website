@@ -4,7 +4,7 @@ require_once("./includes/session_timeout.inc.php");
 require("./includes/connection.inc.php");
 $conn=dbConnect('write');
 if ($_SESSION['role'] != "admin") {
-  header("Location: index");
+  header("Location: index.php");
 }
 if (isset($_POST['resetviews']) && isset($_POST['delview']) && $_SESSION['role'] == "admin") {
   foreach($_POST['delview'] as $person) {
@@ -85,7 +85,6 @@ $result = $conn->query($sql);
 </table>
 <input type="submit" name="resetviews" value="Submit">
 </form>
-<a href="quiz.php">Quiz CMS Page</a>
 <h3>Wrong Answers</h3>
 <p>A list of incorrect answers given for this session</p>
 <table border="2">
@@ -108,6 +107,7 @@ $result = $conn->query($sql);
 <?php } ?>
 </table>
 <?php } ?>
+<a href="quizmod.php">Quiz CMS Page</a>
 <a href="index.php">Home</a><br />
 </body>
 </html>

@@ -52,7 +52,7 @@ $result = $conn->query($sql);
 <td><?php echo $question['qnum']; ?></td>
 <td><?php echo $answer['answer']; ?></td>
 <td><?php echo $question['answer']; ?></td>
-<td <?php if ($question['answer'] != $answer['answer']) {
+<td <?php if (strtoupper($question['answer']) != strtoupper($answer['answer'])) {
   echo 'bgcolor="red"';
 } else {
   echo 'bgcolor="green"';

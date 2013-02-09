@@ -23,7 +23,7 @@ $result = $conn->query($sql);
 ?>
 <html>
 <head>
-<title>Quiz Views</title>
+<title>User Specific Quiz Functions</title>
 </head>
 <body>
 <?php if (isset($_GET['view'])) {
@@ -62,7 +62,8 @@ $result = $conn->query($sql);
 </table>
 <a href="quiz_person.php">Back to Quiz Page</a><br />
 <?php } else {?>
-<h1>Quiz Management</h1>
+<h1>User Specific Quiz Functions</h1>
+<p>Here is a list of everyone who has viewed the quiz and their score. A score of -1 indicates that the quiz is in progress or the person loaded the page and then never took the quiz. It will tell the person to email you if they screwed up with a sassy and annoyed message on their screen. I recommend waiting until they email you before initiating a "reset" command. If you reset while they're still taking the quiz, their result will not be displayed here because this only displays quiz views.</p>
   <form method="post" action="" name="meh">
 <table border="2">
 <tr>
@@ -84,7 +85,29 @@ $result = $conn->query($sql);
 </table>
 <input type="submit" name="resetviews" value="Submit">
 </form>
+<a href="quiz.php">Quiz CMS Page</a>
+<h3>Wrong Answers</h3>
+<p>A list of incorrect answers given for this session</p>
+<table border="2">
+<tr>
+<th>Number</th>
+<th>Correct</th>
+<th>Theirs</th>
+<th>Name</th>
+</th>
+<?php
+  $sql = "select qnum, quiz_answers.answer as 'panswer', quiz_questions.answer as 'canswer', user_id_fk, fname, lname from quiz_questions join quiz_answers on qnum = qnum_fk join users on user_id = user_id_fk where quiz_answers.answer != quiz_questions.answer order by qnum asc";
+    $qstats = $conn->query($sql);
+    while ($wrong = $qstats->fetch_assoc()) {?>
+    <tr>
+    <td><?php echo $wrong['qnum']; ?></td>
+    <td><?php echo $wrong['canswer']; ?></td>
+    <td><?php echo $wrong['panswer']; ?></td>
+    <td><?php echo $wrong['fname'] . ' ' . $wrong['lname']; ?></td>
+</tr>
 <?php } ?>
-<a href="index.php">Home</a>
+</table>
+<?php } ?>
+<a href="index.php">Home</a><br />
 </body>
 </html>

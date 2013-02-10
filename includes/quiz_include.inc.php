@@ -17,8 +17,7 @@ if(@$complete) {
     $sql = "SELECT body FROM cmstext WHERE name = 'RegSuccess'";
     $words = $conn->query($sql);
     $body = $words->fetch_assoc();
-echo $body; ?>
-<p>You'll need to fill out show forms and place those in the manilla envelope on the door next to Brown and Brew before <?php 
+echo $body['body'];
 echo strftime( "%A %b %e at %l:%M %P", $setting['forms_due']);?>.</p>
 <p>If you have any questions about scheduling, please email pd@wmfo.org.</p>
 

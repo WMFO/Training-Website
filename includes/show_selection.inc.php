@@ -138,14 +138,14 @@ echo "</table><br />";
 if ($showweek > 0 && $showweek < 4 && $_SESSION['showchoice']) {
 ?>
 <h2>Weekly Training Goals:</h2>
-<ul>
+<table border="2" width="100%">
 <?php
   $sql = "SELECT * FROM checklist WHERE weeknum = " . $showweek;
   $sql .= " ORDER BY onum ASC";
   $result = $conn->query($sql);
 
   while ($row = $result->fetch_assoc()){?>
-  <li><?php echo $row['item']; ?></li>
+  <tr><td><?php echo $row['item']; ?></td></tr>
 <?php } 
-echo "</ul>";
+echo "</table>";
 }?>

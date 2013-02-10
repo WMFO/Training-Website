@@ -54,7 +54,7 @@ if ($row['type'] == "int"){
   while ( $item = $text->fetch_assoc()) {
 ?><tr>
   <th><?php echo $item['name'];?></th>
-  <td><textarea name="<?php echo $item['name']; ?>" rows="8" cols="50"><?php
+  <td><textarea name="<?php echo $item['name']; ?>" rows="8" cols="40"><?php
     echo $item['body']; ?></textarea></td>
   <td><?php echo $item['description'];?></td>
 </tr>

@@ -1,7 +1,7 @@
 <?php
 date_default_timezone_set('America/New_York');
 $update2 = dbConnect('write');
-$text = array("sidebar","DJRegPg","traineeAnn","trainerAnn");
+$text = array("RegSuccess", "sidebar","DJRegPg","traineeAnn","trainerAnn");
 $uupd = "UPDATE settings SET nvalue = 
 CASE `name`";
 $dupd = "UPDATE settings SET dvalue = 

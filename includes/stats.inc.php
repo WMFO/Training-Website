@@ -118,8 +118,8 @@ if ($numweeks >= 2) {
 ?>
 </table>
 
-<?php if($completed_emails){
-  echo "<h4>Here are the emails of completed trainees:</h4>";
+<?php if(0){//$completed_emails){
+  echo "<h4>Trainees who were marked present twice:</h4>";
   echo $completed_emails;
 } ?>
 </div>

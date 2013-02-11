@@ -10,7 +10,7 @@ if(@$_GET['tomod'] && $_SESSION['role'] == "admin") {
       } else {
         $bool = false;
       }
-      $sql2 = "UPDATE attendance SET " . $i . "_attend = " . ($bool ? 'true' : 'false') . ","  . $i . "_show = -1 WHERE user_id = " . $student['user_id'];
+      $sql2 = "UPDATE attendance SET " . $i . "_attend = " . ($bool ? 'true' : 'false') . " WHERE user_id = " . $student['user_id'];
       $result = $connw->query($sql2);
     }
   }

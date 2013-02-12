@@ -5,7 +5,7 @@ WMFO - Tufts Freeform Radio
 training@wmfo.org  
 written by Nicholas Andre  
 For copyrights and licensing, see COPYING  
-Version 2.0.1  
+Version 2.1.0  
 
 A coordination platform to make sure DJs know how to answer phones. A login management platform capable of keeping track of registration, attendance, and checklist functionality. Currently it is very specifically tailored to the WMFO 2 week training process. Modification for another platform would prove difficult, but it could be used as a basis for a more complicated CMS. It includes basic registration, login, password reset through email, and other things.  
 

@@ -53,6 +53,8 @@ window.onbeforeunload = function() {
 <h1>Quiz</h1>
 <?php if (@$giveboot) {?>
 <p>Sorry, the quiz is in production and only trainees may view the quiz during this period. If you have questions regarding the quiz please contact the training coordinator.</p>
+<?php } elseif ($_SESSION['role'] == "trainee" && $numattends < 2) { ?>
+<p>No cheating the system. Email training@wmfo.org to reset your quiz view and explain the situation.</p>
 <?php } else { ?>
 <p>Before you can register for a show, you must complete this quiz. It is designed to assess your knowledge of basic operating practices here at the station. If you do poorly on the quiz, we'll ask for you to attend a final session where we'll go over additional details.</p>
 <form method="post" action="" name="quizform">

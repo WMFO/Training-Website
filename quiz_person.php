@@ -90,8 +90,8 @@ $result = $conn->query($sql);
 <table border="2">
 <tr>
 <th>Number</th>
-<th>Correct</th>
 <th>Theirs</th>
+<th>Correct</th>
 <th>Name</th>
 </th>
 <?php
@@ -100,8 +100,8 @@ $result = $conn->query($sql);
     while ($wrong = $qstats->fetch_assoc()) {?>
     <tr>
     <td><?php echo $wrong['qnum']; ?></td>
-    <td><?php echo $wrong['canswer']; ?></td>
     <td><?php echo $wrong['panswer']; ?></td>
+    <td><?php echo $wrong['canswer']; ?></td>
     <td><?php echo $wrong['fname'] . ' ' . $wrong['lname']; ?></td>
 </tr>
 <?php } ?>

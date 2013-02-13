@@ -1,13 +1,4 @@
 <?php 
-$sql = "SELECT * FROM attendance WHERE user_id = " . $_SESSION['user_id'];
-$result = $conn->query($sql);
-$row = $result->fetch_assoc();
-$numattends = 0;
-for ($i = 1; $i<4; $i++) {
-  if ($row[$i . '_attend'] == true) {
-    $numattends++;
-  }
-}
 if($_SESSION['quizscore'] >= 0) {
   $complete = true;
   $percentage = $_SESSION['quizscore'];

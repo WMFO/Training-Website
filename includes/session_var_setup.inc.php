@@ -38,6 +38,17 @@ if ($currentTime > $setting['reg_close']) {
 } else {
   $registration_done = false;
 }
+if ($_SESSION['role'] == "trainee") {
+$sql = "SELECT * FROM attendance WHERE user_id = " . $_SESSION['user_id'];
+$result = $conn->query($sql);
+$row = $result->fetch_assoc();
+$numattends = 0;
+for ($i = 1; $i<4; $i++) {
+    if ($row[$i . '_attend'] == true) {
+          $numattends++;
+            }
+    }
+}
 #    $setting['training_start'] = 2012-12-31; #$row['dvalue'];
 /*echo "<pre>";
 var_dump($setting);

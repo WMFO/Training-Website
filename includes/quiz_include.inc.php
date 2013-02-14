@@ -23,10 +23,10 @@ Your WMFO Programming Director!</p>
 <p><i>For Reference:</i></p>
 <?php } else { ?>
 <h1>Oh no!</h1>
-<p>Unfortunately, your score on the test was not good enough to pass! You'll have to attend a remedial training session. If it's before the deadline on the right, expect an email from the training coordinator shortly.</p>
+<p>Unfortunately, your score on the test was not good enough to pass! You'll have to attend a remedial training session with the master of training ceremonies. If it's before the deadline on the right, expect an email from the training coordinator shortly.</p>
 <?php } 
 } elseif($numattends > 1 && isset($_GET['quizr'])) {
- echo "<h3>Oops</h3><p>You appear to have screwed up and not followed instructions. Please contact training@wmfo.org.</p>"; 
+ echo "<h3>Well Fiddlesticks</h3><p>Our records indicate that you already viewed the quiz once. To enhance security, only one view of the quiz is allowed per trainee (you're supposed to take it the first time you load the page. Please contact training@wmfo.org and explain that you screwed up and need your quiz view reset.</p>"; 
 } elseif($numattends > 1) {?>
 <h3>Congratulations</h3>
 <table id="myTable" border="2">

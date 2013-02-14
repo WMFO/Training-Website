@@ -107,10 +107,10 @@ for ($i = $showweek; $i > 0; $i--) {
   }
 }
 if ($numweeks >= 2) {
-  echo ' color="green">Complete!';
+  echo ' bgcolor="green">Complete!';
   $completed_emails .= $student['email'] . ', ';
 } else {
-  echo ' color="red">incomplete';
+  echo ' bgcolor="red">incomplete';
 }
 ?></td>
  </tr> 

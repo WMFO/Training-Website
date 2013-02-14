@@ -15,11 +15,11 @@ case 3:
 case 4:
   $sql .= "role = 'trainee' && showchoice != 0";
   break;
-case 5:
-  $sql .= "role = 'trainee' && quizscore >" . $setting['min_quiz_grade'];
-  break;
-case 6;
+case 5;
   $sql .= "role = 'trainee' && quizscore < 0";
+  break;
+case 6:
+  $sql .= "role = 'trainee' && quizscore >" . $setting['min_quiz_grade'];
   break;
 case 7:
   $sql .= "role = 'trainee' && quizscore <" . $setting['min_quiz_grade']

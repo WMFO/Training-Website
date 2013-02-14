@@ -99,7 +99,7 @@ while($student = $students->fetch_assoc()){?>
 } else {
   echo "yup: " . $student['showchoice'];
 }?></td>
-  <td><?php 
+  <td<?php 
   $numweeks = 0;
 for ($i = $showweek; $i > 0; $i--) {
   if ($student[$i . "_attend"]){
@@ -107,10 +107,10 @@ for ($i = $showweek; $i > 0; $i--) {
   }
 }
 if ($numweeks >= 2) {
-  echo "Complete!";
+  echo " color="green">Complete!";
   $completed_emails .= $student['email'] . ', ';
 } else {
-  echo "incomplete";
+  echo " color="red">incomplete";
 }
 ?></td>
  </tr> 

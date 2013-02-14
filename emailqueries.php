@@ -18,7 +18,10 @@ case 4:
 case 5:
   $sql .= "role = 'trainee' && quizscore >" . $setting['min_quiz_grade'];
   break;
-case 6:
+case 6;
+  $sql .= "role = 'trainee' && quizscore < 0";
+  break;
+case 7:
   $sql .= "role = 'trainee' && quizscore <" . $setting['min_quiz_grade']
     . " && quizscore > 0";
   break;
@@ -32,7 +35,7 @@ $result = $conn->query($sql);
 <select name="type">
 <?php
 $things = array("All Emails", "Trainees", "Trainers", "Unregistered Trainees",
-  "Registered Trainers", "Complete Trainees", "Remedial Trainees");
+  "Registered Trainees", "Trainees who haven't completed the quiz", "Complete Trainees", "Remedial Trainees");
 for($i = 0; $i < sizeof($things); $i++) {
   echo '<option value="' . $i . '" '; 
   if (@$_POST['type'] == $i){ echo 'selected="yes"';}

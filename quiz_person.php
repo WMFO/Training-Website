@@ -18,7 +18,7 @@ if (isset($_POST['resetviews']) && isset($_POST['markpass']) && $_SESSION['role'
     $conn->query($sql2);
   }
 }
-$sql = "SELECT * FROM users WHERE quizscore >= 0";
+$sql = "SELECT * FROM users WHERE quizscore >= 0 ORDER BY quizscore desc";
 $result = $conn->query($sql);
 ?>
 <html>

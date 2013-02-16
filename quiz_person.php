@@ -18,7 +18,7 @@ if (isset($_POST['resetviews']) && isset($_POST['markpass']) && $_SESSION['role'
     $conn->query($sql2);
   }
 }
-$sql = "SELECT fname, lname, email, user_id, quizscore FROM quiz_views LEFT JOIN users on user_id = id_fk";
+$sql = "SELECT * FROM users WHERE quizscore >= 0";
 $result = $conn->query($sql);
 ?>
 <html>
@@ -73,7 +73,12 @@ $result = $conn->query($sql);
 <th>Reset View</th>
 <th>Mark Person as Passed</th>
 </tr>
-<?php while($row = $result->fetch_assoc()) { ?>
+<?php 
+  $people = array();
+  while (1) {
+    while($row = $result->fetch_assoc()) {
+if (in_array($row['user_id'], $people)) {
+      $people[] = $row['user_id']?>
 <tr>
 <td><a href="?view=<?php echo $row['user_id']; ?>"><?php echo $row['fname'] . ' ' . $row['lname']; ?></a></td>
 <td><?php echo $row['email'];?></td>
@@ -81,7 +86,15 @@ $result = $conn->query($sql);
 <td>R<input type="checkbox" name="delview[]" value="<?php echo $row['user_id']; ?>"></td>
 <td>P<input type="checkbox" name="markpass[]" value="<?php echo $row['user_id']; ?>"></td>
 </tr>
-<?php } ?>
+<?php }} 
+if (@$quizviewcheck) {
+  break;
+}
+$sql = "SELECT fname, lname, email, user_id, quizscore FROM quiz_views LEFT JOIN users on user_id = id_fk";
+$result = $conn->query($sql);
+$quizviewcheck = true;
+
+  }?>
 </table>
 <input type="submit" name="resetviews" value="Submit">
 </form>
@@ -95,7 +108,7 @@ $result = $conn->query($sql);
 <th>Name</th>
 </th>
 <?php
-  $sql = "select qnum, quiz_answers.answer as 'panswer', quiz_questions.answer as 'canswer', user_id_fk, fname, lname from quiz_questions join quiz_answers on qnum = qnum_fk join users on user_id = user_id_fk where quiz_answers.answer != quiz_questions.answer order by qnum asc";
+    $sql = "select qnum, quiz_answers.answer as 'panswer', quiz_questions.answer as 'canswer', user_id_fk, fname, lname from quiz_questions join quiz_answers on qnum = qnum_fk join users on user_id = user_id_fk where quiz_answers.answer != quiz_questions.answer order by qnum asc";
     $qstats = $conn->query($sql);
     while ($wrong = $qstats->fetch_assoc()) {?>
     <tr>

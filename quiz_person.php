@@ -77,7 +77,7 @@ $result = $conn->query($sql);
   $people = array();
   while (1) {
     while($row = $result->fetch_assoc()) {
-if (in_array($row['user_id'], $people)) {
+if (!in_array($row['user_id'], $people)) {
       $people[] = $row['user_id']?>
 <tr>
 <td><a href="?view=<?php echo $row['user_id']; ?>"><?php echo $row['fname'] . ' ' . $row['lname']; ?></a></td>

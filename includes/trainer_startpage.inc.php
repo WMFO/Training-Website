@@ -72,9 +72,12 @@ if ($showweek > 0) {
           else { echo 'disabled="disabled" checked="yes"';} 
         } elseif ($i == $showweek){
           if ($row[$i . "_show"] > 0 && 
-            $row[$i . "_show"] != $_SESSION['user_id']){
+            $row[$i . "_show"] != $_SESSION['user_id'] && $row[$i . '_attend'] == true){
               $adstud = true;
-              echo 'disabled="yes" checked="yes"';
+            echo ' value="'
+              . $row['user_id'] .
+              '" name="attends[]"';
+              echo ' readonly="readonly" checked="yes"';
           } else {
             echo ' value="'
               . $row['user_id'] .

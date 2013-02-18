@@ -115,7 +115,7 @@ if ($numweeks >= 2) {
 }
 ?></td>
 <td<?php
-if ($student['quizscore'] > $setting['min_quizgrade']) {
+if ($student['quizscore'] > $setting['min_quiz_grade']) {
   echo ' bgcolor="green">' . $student['quizscore'];
 } else {
   echo ' bgcolor="red">' . $student['quizscore'];

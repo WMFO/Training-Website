@@ -86,18 +86,19 @@ $students = $conn->query($sql);
   <tr>
   <th>Name</th>
   <th>Email</th>
-  <th>Registered?</th>
-  <th>Attendance</th>
+  <th>Reg</th>
+  <th>Att</th>
+  <th>Quiz</th>
   </tr>
 <?php
 while($student = $students->fetch_assoc()){?>
 <tr>
 <td><?php echo $student['fname'] . ' ' . $student['lname']; ?></td>
 <td><?php echo $student['email']; ?></td>
-<td><?php if($student['showchoice'] == 0) {
-  echo "nope";
+<td<?php if($student['showchoice'] == 0) {
+  echo ' bgcolor="red">nope';
 } else {
-  echo "yup: " . $student['showchoice'];
+  echo ' bgcolor="green">yup';
 }?></td>
   <td<?php 
   $numweeks = 0;
@@ -107,12 +108,19 @@ for ($i = $showweek; $i > 0; $i--) {
   }
 }
 if ($numweeks >= 2) {
-  echo ' bgcolor="green">Complete!';
+  echo ' bgcolor="green">';
   $completed_emails .= $student['email'] . ', ';
 } else {
-  echo ' bgcolor="red">incomplete';
+  echo ' bgcolor="red">';
 }
 ?></td>
+<td<?php
+if ($student['quizscore'] > $setting['min_quizgrade']) {
+  echo ' bgcolor="green">' . $student['quizscore'];
+} else {
+  echo ' bgcolor="red">' . $student['quizscore'];
+}?>
+</td>
  </tr> 
 <?php }
 ?>

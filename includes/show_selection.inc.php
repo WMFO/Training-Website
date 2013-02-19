@@ -51,7 +51,8 @@ if ($_SESSION['showchoice']) {
 }?>
     <p>Your trainer's email is: <?php echo $row['email']; ?></p>
 <p>
-  <a href="https://wiki.wmfo.org/Training/New_DJ_Training_Checklist">New DJ Training Checklist</a>
+You may find it helpful to read the 
+  <a href="https://wiki.wmfo.org/Training/DJ_Training_Reference_Guide">New DJ Training Checklist</a>.
 </p>
 <p>Attendance:</p>
 <?php
@@ -138,14 +139,14 @@ echo "</table><br />";
 if ($showweek > 0 && $showweek < 4 && $_SESSION['showchoice']) {
 ?>
 <h2>Weekly Training Goals:</h2>
-<table border="2" width="100%">
+<ul>
 <?php
   $sql = "SELECT * FROM checklist WHERE weeknum = " . $showweek;
   $sql .= " ORDER BY onum ASC";
   $result = $conn->query($sql);
 
   while ($row = $result->fetch_assoc()){?>
-  <tr><td><?php echo $row['item']; ?></td></tr>
+  <li><?php echo $row['item']; ?></li>
 <?php } 
-echo "</table>";
+echo "</ul>";
 }?>

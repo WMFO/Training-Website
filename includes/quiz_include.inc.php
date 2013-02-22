@@ -15,6 +15,7 @@ echo strftime( "%A %b %e at %l:%M %P", $setting['forms_due']);?>.</p>
 <p>All the best,<br>
 Your WMFO Programming Director!</p>
 </p>
+<p><b>Please print out these show forms!:</b></p>
 <ol>
 <li><a href="./includes/dj_agreement.pdf">DJ Contract</a></li>
 <li><a href="./includes/show_form.pdf">Show Forms</a></li>

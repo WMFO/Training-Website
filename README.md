@@ -5,14 +5,18 @@ WMFO - Tufts Freeform Radio
 training@wmfo.org  
 written by Nicholas Andre  
 For copyrights and licensing, see COPYING  
-Version 2.2.3  
+Version 2.3.0  
 
 A coordination platform to make sure DJs know how to answer phones. A login management platform capable of keeping track of registration, attendance, and checklist functionality. Currently it is very specifically tailored to the WMFO 2 week training process. Modification for another platform would prove difficult, but it could be used as a basis for a more complicated CMS. It includes basic registration, login, password reset through email, and other things.  
 
-A working test demonstration of the current/future code can be found at http://php.axfp.org .
+TEMS has entered a Long Term Limited Support phase. Only critical bug fixes and minimal content updates will follow.  
+
+TEMS 
 
 Changelog
 =========
+2/21/13 -- V 2.3.0
+All bug fixes and logic fixes implemented from second training session and additional features added. In particular, the logic regarding attendance lockout for add/drop students was corrected to take into account the ability of the admin user to modify attendance. TEMS entering Long Term Minimal Support phase.  
 
 2/9/13 -- V 2.0  
 All Features Functional. Includes ability to view quiz results. End of primary development phase. Only bug fixes and minor tweaks to follow.  

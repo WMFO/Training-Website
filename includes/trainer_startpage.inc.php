@@ -54,6 +54,7 @@ if ($showweek > 0) {
 <?php if($_SESSION['enabled'] == 2) {echo "<th>Make-Up Week</th>";}?>
     </tr>
 <?php
+    $werehere = array();
     $adstud = false;
     while ($row = $attendance->fetch_assoc()){ ?>
    <tr>
@@ -74,10 +75,8 @@ if ($showweek > 0) {
           if ($row[$i . "_show"] > 0 && 
             $row[$i . "_show"] != $_SESSION['user_id'] && $row[$i . '_attend'] == true){
               $adstud = true;
-            echo ' value="'
-              . $row['user_id'] .
-              '" name="attends[]"';
-              echo ' readonly="readonly" checked="yes"';
+              echo ' disabled="disabled" checked="yes"';
+              $werehere[] = $row['user_id'];
           } else {
             echo ' value="'
               . $row['user_id'] .
@@ -95,6 +94,11 @@ if ($showweek > 0) {
 <?php } ?>
 
 </table>
+<?php
+        foreach ($werehere as $oldperson) {
+          echo '<input type="hidden" name="attends[]" value="' . $oldperson . '">';
+        }
+?>
 <p><input type="submit" name="attendance" value="Submit Attendance" id="attendance"></p>
 </form>
 <?php

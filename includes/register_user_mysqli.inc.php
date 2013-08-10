@@ -41,15 +41,15 @@ if (!$errors) {
   // prepare SQL statement
   $megahasher = new PasswordHash(8,FALSE);
   $hash = $megahasher->HashPassword($pwd);
-  $sql = 'INSERT INTO users (fname, lname, email, salt, pwd, role, showday, showtime, showpm, showduration, phone, showname, showgenre)
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
+  $sql = 'INSERT INTO users (fname, lname, email, salt, pwd, role, showday, showtime, showpm, showduration, phone, showname, showgenre, student_id)
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
   $stmt = $conn->stmt_init();
   $stmt = $conn->prepare($sql);
   if($stmt != false)
   {
     // bind parameters and insert the details into the database
-    $stmt->bind_param('sssisssisssss', $fname, $lname, $email, $salt, $hash, $role, $showday, $showtime, $showpm,
-      $showduration, $phone, $showname, $showgenre);
+    $stmt->bind_param('sssisssissssss', $fname, $lname, $email, $salt, $hash, $role, $showday, $showtime, $showpm,
+      $showduration, $phone, $showname, $showgenre, $student_id);
     $stmt->execute();
     if ($stmt->affected_rows == 1) {
       if ($role = "trainee"){

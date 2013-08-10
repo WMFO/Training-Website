@@ -5,7 +5,7 @@ if($_SERVER["HTTPS"] != "on") {
         exit();
 }
 $expected = array('fname', 'lname', 'email', 'pwd', 'conf_pwd', 'role', 'showday', 'showtime', 'showpm', 'showduration',
-  'phone', 'showname', 'showgenre', 'conf_email');
+  'phone', 'showname', 'showgenre', 'conf_email', 'student_id');
 // set required fields
 $required = array('fname', 'lname', 'email', 'pwd', 'conf_pwd', 'role', 'conf_email');
 $errors = array();
@@ -61,7 +61,7 @@ input[type="submit"] {
         margin-left:122px;
 }
 </style>
-<?php if ($_GET['role'] != "trainer") {
+<?php if (@$_GET['role'] != "trainer") {
   echo "<h1>Register Trainee</h1>";
   echo "<i>Use this page to register to be trained at WMFO for DJing. If you are looking to train people, you've followed the wrong link.</i>";
 } else {
@@ -118,6 +118,11 @@ if (isset($success)) {
     <label for="phone">Phone Number:</label>
     <input type="text" name="phone" id="phone" maxlength="14" <?php if ($errors || $missing){
       echo 'value="' . $phone . '" ';}?>> Optional. In case you forget to come to training.
+  </p>
+  <p>
+    <label for="student_id">Student ID Number:</label>
+    <input type="text" name="student_id" id="student_id" maxlength="14" <?php if ($errors || $missing){
+      echo 'value="' . $student_id . '" ';}?> required> Required for station access.
   </p>
 
 <?php } else { ?>

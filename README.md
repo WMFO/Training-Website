@@ -5,7 +5,7 @@ WMFO - Tufts Freeform Radio
 training@wmfo.org  
 written by Nicholas Andre  
 For copyrights and licensing, see COPYING  
-Version 2.3.0  
+Version 2.4.0  
 
 A coordination platform to make sure DJs know how to answer phones. A login management platform capable of keeping track of registration, attendance, and checklist functionality. Currently it is very specifically tailored to the WMFO 2 week training process. Modification for another platform would prove difficult, but it could be used as a basis for a more complicated CMS. It includes basic registration, login, password reset through email, and other things.  
 
@@ -15,6 +15,9 @@ TEMS
 
 Changelog
 =========
+8/12/13 -- V 2.4.0  
+Added support for entering Student ID number and integrated backup and restore.  
+  
 2/21/13 -- V 2.3.0
 All bug fixes and logic fixes implemented from second training session and additional features added. In particular, the logic regarding attendance lockout for add/drop students was corrected to take into account the ability of the admin user to modify attendance. TEMS entering Long Term Minimal Support phase.  
 

@@ -6,6 +6,8 @@ if($_SESSION['role'] != 'admin'){
 }
 include("./includes/session_var_setup.inc.php");
 if(isset($_POST['globalreset']) && strtoupper(@$_POST['supersure']) == "DELETE"){
+  $date = date("Y-m-d_His");
+  exec("mysqldump -u training_coordin -ptraining_wmfo -h mysql.wmfo.org wmfo_training > backups/${date}.sql");
   $sql = "DELETE FROM users WHERE role != 'admin'";
   $connw=dbConnect('write');
   $connw->query($sql);
@@ -21,6 +23,19 @@ if(isset($_POST['globalreset']) && strtoupper(@$_POST['supersure']) == "DELETE")
   $connw->query($sql);
   $sql = "ALTER TABLE quiz_answers AUTO_INCREMENT = 1";
   $connw->query($sql);
+}
+if (isset($_POST['restore'])) {
+  $date = date("Y-m-d_His");
+  exec("mysqldump -u training_coordin -ptraining_wmfo -h mysql.wmfo.org wmfo_training > backups/restore_${date}.sql");
+  $backups = opendir("backups/");
+    while (false !== ($entry = readdir($backups))) {
+        if (strpos($entry,".sql") && $_POST['which'] == $entry)
+	  $restorefile = $entry;
+    }  
+  if (!isset($restorefile)) {
+    die("Invalid restore filename");
+  }
+  exec("mysql -u training_coordin -ptraining_wmfo -h mysql.wmfo.org wmfo_training < backups/$restorefile");
 }
 if (isset($_POST['activate'])){
   require("./includes/usernable.inc.php");
@@ -63,6 +78,7 @@ while ($row = $result->fetch_assoc()){
 </form>
 <h2>The Global Reset</h2>
 <p>The following button will delete all trainees and trainers in preparation for the next training session. This change is permanent and unrecoverable. Don't complain to Nick if you accidentally push this button when it is not appropriate to do so. Thanks.</p>
+<p>This will also simultaneously create a backup so that the site can be restored (manually) to the previous condition. However, if that backup were to fail...that would mean...well...</p>
 <form name="resetform" action="" method="post">
 <p>
 <label for="globalreset">I want to destroy all users</label>
@@ -76,4 +92,22 @@ while ($row = $result->fetch_assoc()){
 <input type="submit" value="Delete All Users" name="reset">
 </p>
 </form>
+<h2>Global Restore</h2>
+<p>This section allows you to restore to various times. The dropdown will select the various dates, and your site will be restored to that point in time. All data (including quiz etc) will be restored.</p>
+<p>
+<form action="" method="post">
+<label for="which">Date:</label>
+<select name="which" id="which">
+<?php
+$backups = opendir("backups/");
+    while (false !== ($entry = readdir($backups))) {
+	if (strpos($entry,".sql"))
+          echo "<option name='$entry'>$entry</option>\n";
+    }?>
+</select>
+</p>
+<p>
+<input type="submit" name="restore" value="Restore">
+</form>
+</p>
 <?php include('./tail.inc.php');?>

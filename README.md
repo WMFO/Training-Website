@@ -7,11 +7,17 @@ written by Nicholas Andre
 For copyrights and licensing, see COPYING  
 Version 2.4.0  
 
-A coordination platform to make sure DJs know how to answer phones. A login management platform capable of keeping track of registration, attendance, and checklist functionality. Currently it is very specifically tailored to the WMFO 2 week training process. Modification for another platform would prove difficult, but it could be used as a basis for a more complicated CMS. It includes basic registration, login, password reset through email, and other things.  
+TEMS is a purpose built web application designed to facilitate the WMFO training process. It was a learning project by Nicholas Andre during the 2012/2013 school year. It is built in the spirit of Web 1.0 architecture, utilizing almost no Javascript and a truly non-scalable PHP structure. Thanks to all the mistakes Nick made here, he has learned a lot about what not to do when building websites.
+
+It is not recommended to try and modify this code. It is somewhat unlikely that this code will see much TLC in the future from Nick, as this job does not pay very well.  
 
 TEMS has entered a Long Term Limited Support phase. Only critical bug fixes and minimal content updates will follow.  
 
-TEMS 
+General Description
+===================
+
+A login management platform capable of keeping track of registration, attendance, and checklist functionality. Currently it is very specifically tailored to the WMFO 2 week training process. Modification for another platform would prove difficult, but it could be used as a basis for a more complicated CMS. It includes basic registration, login, password reset through email, and other things.  
+
 
 Changelog
 =========

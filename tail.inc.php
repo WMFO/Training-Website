@@ -13,7 +13,7 @@ echo $line['body'];
 ?>
 			<h3>wmfo training system</h3>
 			<p>
-                        The WMFO Training Education Management System (the TEMS&reg;) was built in the summer of 2012 by Nicholas Andre.
+                        The WMFO Training Education Management System (the TEMS&reg;) was built during the 2012/2013 school year by Nicholas Andre, using only command line vim.
 </p>
 <p><i> It's like SIS, but not terrible.	</i>
 			</p>

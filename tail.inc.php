@@ -15,7 +15,7 @@ echo $line['body'];
 			<p>
                         The WMFO Training Education Management System (the TEMS&reg;) was built during the 2012/2013 school year by Nicholas Andre, using only command line vim.
 </p>
-<p><i> It's like SIS, but not terrible.	</i>
+<p><i> It's like iSIS, but it works.</i>
 			</p>
 		</div>
 		<br class="clearfix" />

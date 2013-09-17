@@ -68,7 +68,7 @@ $result = $conn->query($sql);
 <table border="2">
 <tr>
 <th>Person</th>
-<th>Student ID</th>
+<th>Student ID<br><i>Disabled</i></th>
 <th>Email</th>
 <th>Quiz Score</th>
 <th>Reset View</th>
@@ -82,7 +82,7 @@ if (!in_array($row['user_id'], $people)) {
       $people[] = $row['user_id']?>
 <tr>
 <td><a href="?view=<?php echo $row['user_id']; ?>"><?php echo $row['fname'] . ' ' . $row['lname']; ?></a></td>
-<td><?php echo $row['student_id'];?></td>
+<td>X</td>
 <td><?php echo $row['email'];?></td>
 <td><?php echo $row['quizscore'];?></td>
 <td>R<input type="checkbox" name="delview[]" value="<?php echo $row['user_id']; ?>"></td>

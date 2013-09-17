@@ -33,11 +33,16 @@ Welcome,
 <?php echo $_SESSION['fname']; ?>
 !
 </p>
-<p>You can view DJ names and contact info below once they join your show. Please take attendance and fill out the checklist every week during your show!</p>
+<?php if (!$registration_done) { ?>
+<p>You've successfully registered for TEMS! Please remember the following points:</p>
+<ul><li>Once people register for your show, they'll be visible below.</li>
+<li>Check back after the registration period ends (see sidebar for dates) and email all the members of your show per the instructions of the training coordinator.</li>
+<li>Remember to take attendance and fill out the checklist every week!</li></ul>
+<?php } ?>
 
 <?php include('./includes/trainer_startpage.inc.php'); ?>
 
 <?php  include('./includes/checklist.inc.php');
 } ?>
-<p>Problems? Email training@wmfo.org.</p>
+<p><br>Problems? Email training@wmfo.org.</p>
 <?php include('./tail.inc.php');

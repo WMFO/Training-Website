@@ -11,7 +11,7 @@ Welcome,
   echo $row['body'];
 ?>
 <?php } ?>
-<?php if (!$registration_done && !$register) {?><p>Your registration and login is successful. Please log back in at the appropriate time to select your show.</p>
+<?php if (!$registration_done && !$register) {?><p>Your registration and login are successful. Please return at the appropriate time to select your show.</p>
 <?php } else { ?>
 <p>The WMFO training portal.</p>
 <?php } 

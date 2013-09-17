@@ -122,7 +122,7 @@ if (isset($success)) {
   <p>
     <label for="student_id">Student ID Number:</label>
     <input type="text" name="student_id" id="student_id" maxlength="14" <?php if ($errors || $missing){
-      echo 'value="' . $student_id . '" ';}?> required> Required for station access.
+      echo 'value="' . $student_id . '" ';}?> required> If you're not a Tufts student, fill in "N/A"
   </p>
 
 <?php } else { ?>

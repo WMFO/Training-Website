@@ -8,7 +8,7 @@ include('./head.inc.php');
 if (isset($_POST['upload'])) {
   switch (@$_POST['upload']) {
   case "Upload Show Form":
-    $filename = './includes/show_form.pdf';
+    $filename = getcwd() . '/includes/show_form.pdf';
     break;
   case "Upload DJ Agreement":
     $filename = './includes/dj_agreement.pdf';
@@ -26,10 +26,10 @@ if (isset($filename)) {
   if (file_exists($filename) && $_POST['upload'] == "Upload Image") {
     $error = "Sorry, that file already exists. Please rename it and upload again.";
   } else {
-    if(move_uploaded_file($_FILES['userfile']['tmp_name'], $filename)) {
+    if($errorno = move_uploaded_file($_FILES['userfile']['tmp_name'], $filename)) {
       $success = "File successfully uploaded";
     } else {
-      $success = "Error moving file to target directory";
+      $success = "Error moving file to target directory #" . $errorno . $filename;
     }
   }
 }

@@ -22,9 +22,9 @@ if (isset($_POST['emaillookup'])){
       $stmt->bind_param('is', $user_id, $secret);
       $stmt->execute();
       if ($stmt->affected_rows == 1) {
-        $subject = "WMFO TEMS Password Reset";
+        $subject = "WMFO Training Password Reset";
         $headers = "From: WMFO Training Coordinator <training@wmfo.org>";
-        $message = "Hello Freeformer!\n\nYou're receiving this email because someone requested a password change on your WMFO TEMS (Training Education Management System) Account. If that was you, fantastic! Click the link below to load the password reset page:\n\nhttps://" . $_SERVER['SERVER_NAME'] . $_SERVER['PHP_SELF'] . "?key=" . $secret . "\n\nHowever, if this was not you, simply ignore this email. The reset code will expire on its own after 60 minutes.";
+        $message = "Hello Freeformer!\n\nYou're receiving this email because someone requested a password change on your WMFO Training Account. If that was you, fantastic! Click the link below to load the password reset page:\n\nhttps://" . $_SERVER['SERVER_NAME'] . $_SERVER['PHP_SELF'] . "?key=" . $secret . "\n\nHowever, if this was not you, simply ignore this email. The reset code will expire on its own after 60 minutes.";
         if (mail ($email, $subject, $message, $headers)) {
           $error[] = "Check your inbox for a reset code!";
         } else {

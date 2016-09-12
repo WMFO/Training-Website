@@ -1,17 +1,17 @@
-Training Education Management System (TEMS)
+WMFO Training System
 ===========================================
 
 WMFO - Tufts Freeform Radio  
 training@wmfo.org  
 written by Nicholas Andre  
 For copyrights and licensing, see COPYING  
-Version 2.4.0  
+Version 2.5.0  
 
-TEMS is a purpose built web application designed to facilitate the WMFO training process. It was a learning project by Nicholas Andre during the 2012/2013 school year. It is built in the spirit of Web 1.0 architecture, utilizing almost no Javascript and a truly non-scalable PHP structure. Thanks to all the mistakes Nick made here, he has learned a lot about what not to do when building websites.
+The WMFO Training Site is a purpose built web application designed to facilitate the WMFO training process. It was a learning project by Nicholas Andre during the 2012/2013 school year. It is built in the spirit of Web 1.0 architecture, utilizing almost no Javascript and a truly non-scalable PHP structure. Thanks to all the mistakes Nick made here, he has learned a lot about what not to do when building websites.
 
 It is not recommended to try and modify this code. It is somewhat unlikely that this code will see much TLC in the future from Nick, as this job does not pay very well.  
 
-TEMS has entered a Long Term Limited Support phase. Only critical bug fixes and minimal content updates will follow.  
+The Training Site has entered a Long Term Limited Support phase. Only critical bug fixes and minimal content updates will follow. and Nick will complain about having to do work like this. 
 
 General Description
 ===================
@@ -21,6 +21,9 @@ A login management platform capable of keeping track of registration, attendance
 
 Changelog
 =========
+9/12/2106 -- V 2.5.0
+Removed the TEMS branding. Backups no longer fail silently (failures prevent reset).
+
 8/12/13 -- V 2.4.0  
 Added support for entering Student ID number and integrated backup and restore.  
   
@@ -53,3 +56,5 @@ Added user management and fixed a few bugs.
 
 8/27/12  
 First push, version 0.80. 90% of basic functionality added. Administration yet to be completed.
+
+

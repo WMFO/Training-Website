@@ -22,7 +22,7 @@ Released   : 20120205
 <div id="wrapper">
 	<div id="header">
 		<div id="logo">
-			<h1><a href="#">wmfo tems</a></h1>
+			<h1><a href="#">wmfo dj training</a></h1>
 		</div>
 		<div id="menu">
 			<ul>
@@ -33,7 +33,7 @@ Released   : 20120205
         <li><a href="quizmod.php">Quiz</a></li>
         <li><a href="settings.php">Settings</a></li>
 <?php } else { ?>        <li><a href="moduser.php">Edit Info</a></li>
-				<li><a href="passwdreset.php">Password Reset</a></li>
+        <li><a href="checklist.php">Checklist</a></li>
 				<li><a href="about.php">About</a></li>
 <?php } ?>
 				<li class="last"><a href="?logout=yes">logout</a></li>

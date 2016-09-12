@@ -7,7 +7,9 @@ if($_SESSION['role'] != 'admin'){
 include("./includes/session_var_setup.inc.php");
 if(isset($_POST['globalreset']) && strtoupper(@$_POST['supersure']) == "DELETE"){
   $date = date("Y-m-d_His");
-  exec("mysqldump -u training_coordin -ptraining_wmfo -h mysql.wmfo.org wmfo_training > backups/${date}.sql");
+  exec("mysqldump -u training -ptraining training > backups/${date}.sql");
+  if (filesize("backups/${date}.sql") < 5)
+    die("the backup failed -- backup size is quite small, which is bad. Please fix the code.");
   $sql = "DELETE FROM users WHERE role != 'admin'";
   $connw=dbConnect('write');
   $connw->query($sql);
@@ -18,8 +20,6 @@ if(isset($_POST['globalreset']) && strtoupper(@$_POST['supersure']) == "DELETE")
   $sql = "DELETE FROM quiz_answers";
   $connw->query($sql);
   $sql = "DELETE FROM quiz_views";
-  $connw->query($sql);
-  $sql = "ALTER TABLE users AUTO_INCREMENT = 2";
   $connw->query($sql);
   $sql = "ALTER TABLE quiz_answers AUTO_INCREMENT = 1";
   $connw->query($sql);

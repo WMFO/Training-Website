@@ -3,9 +3,9 @@ function dbConnect($usertype, $connectionType = 'mysqli') {
   $host = 'localhost';
   $db = 'training';
   //if ($usertype == 'read') {
-  if ($usertype == 'read'){
-    $user = 'trainingread';
-    $pwd = 'ch00ch00training!';
+  if (1){
+    $user = 'training';
+    $pwd = 'training';
   } elseif ($usertype == 'write') {
     $user = 'trainingwrite';
     $pwd = 'hAUrft9x7TaYxqXe';

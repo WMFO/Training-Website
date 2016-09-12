@@ -21,7 +21,7 @@ A login management platform capable of keeping track of registration, attendance
 
 Changelog
 =========
-9/12/2106 -- V 2.5.0
+9/12/16 -- V 2.5.0
 Removed the TEMS branding. Backups no longer fail silently (failures prevent reset).
 
 8/12/13 -- V 2.4.0  

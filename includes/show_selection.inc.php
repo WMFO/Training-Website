@@ -52,7 +52,7 @@ if ($_SESSION['showchoice']) {
     <p>Your trainer's email is: <?php echo $row['email']; ?></p>
 <p>
 You may find it helpful to read the 
-  <a href="https://wiki.wmfo.org/Training/DJ_Training_Reference_Guide">New DJ Training Checklist</a>.
+  <a href="https://www.youtube.com/playlist?list=PLP5F7bT61v2tx_MKfE0UVFV1dXid4YE5M">DJ Handbook</a> and watch the <a href="https://www.youtube.com/playlist?list=PLP5F7bT61v2tx_MKfE0UVFV1dXid4YE5M">Training Videos</a>.
 </p>
 <p>Attendance:</p>
 <?php

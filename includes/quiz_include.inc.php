@@ -19,7 +19,7 @@ echo "<p>Remember, forms are due at: " . strftime( "%A %b %e at %l:%M %P", $sett
 } elseif($numattends > 1 && isset($_GET['quizr'])) {
  echo "<h3>Well Fiddlesticks</h3><p>Our records indicate that you already viewed the quiz once. To enhance security, only one view of the quiz is allowed per trainee (you're supposed to take it the first time you load the page. Please contact training@wmfo.org and explain that you screwed up and need your quiz view reset.</p>"; 
 } elseif($numattends > 1) {?>
-<h3>Congratulations</h3>
+<h3>Congratulations - Studio Training done! 2 steps left!</h3>
 <table id="myTable" border="2">
 <tr><td>
   <p>Our records indicate that you have successfully completed our studio training process!<p>

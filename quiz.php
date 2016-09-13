@@ -57,7 +57,7 @@ window.onbeforeunload = function() {
 <p>No cheating the system. Email training@wmfo.org to reset your quiz view and explain the situation.</p>
 <?php } else { ?>
 <p>Before you can register for a show, you must complete this quiz. It is designed to assess your knowledge of basic operating practices here at the station. If you do poorly on the quiz, we'll ask for you to attend a final session where we'll go over additional details.</p>
-<p>You may wish to read the <a href="https://wiki.wmfo.org/Training/DJ_Training_Reference_Guide">DJ Training Reference Guide</a> or the <a href="https://wiki.wmfo.org/Staff_Info/General_Policies">General Policy</a> page!</p>
+<p>Please use the <a target="_blank" href="https://docs.google.com/document/d/1K4ZUeF1CYjk6BDiEqFmx1pf-geqkG0avD8ppCqqe6Ws/edit">DJ Handbook</a> and the <a target="_blank" href="https://www.youtube.com/playlist?list=PLP5F7bT61v2tx_MKfE0UVFV1dXid4YE5M">WMFO Training Videos</a> page!</p>
 <form method="post" action="" name="quizform">
 <?php
 while($row = $result->fetch_assoc()) { ?>
